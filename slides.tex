@@ -163,7 +163,6 @@ git init
 \end{itemize}
 \end{frame}
 
-  \section{Le travail en groupe}
 \begin{frame}{Les trois zones de git}
 \begin{figure}
     \centering
@@ -412,6 +411,65 @@ git checkout <branche>
 \item Exemple
 \begin{lstlisting}
 git merge <branche>
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\section{Le travail en groupe}
+
+\begin{frame}{Github vs Bitbucket}
+\begin{figure}
+    \centering
+    \includegraphics[width=10cm]{img/github-bitbucket.png}
+    \caption{Tiré du site \url{https://media.licdn.com}}
+\end{figure}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{git clone}
+
+\begin{itemize}
+\item Cette commande permet de cloner un répertoire \texttt{git} depuis un serveur principal
+\item Exemple
+\begin{lstlisting}
+git clone <url>
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{git remote}
+
+\begin{itemize}
+\item Cette commande permet d'ajouter un serveur distant à votre répertoire \texttt{git} si vous n'avez pas cloner le répertoire depuis le serveur
+\item Exemple
+\begin{lstlisting}
+git remote add origin <url>
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{git pull}
+
+\begin{itemize}
+\item Cette commande permet de récupérer les dernières modifications depuis le serveur principal
+\item Exemple
+\begin{lstlisting}
+git pull origin
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{git push}
+
+\begin{itemize}
+\item Cette commande permet d'envoyer les dernières modifications locales sur le serveur principal
+\item Exemple
+\begin{lstlisting}
+git push origin master
 \end{lstlisting}
 \end{itemize}
 \end{frame}
