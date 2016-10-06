@@ -6,8 +6,28 @@
 
 % Base package
 \usepackage{graphicx}
+\usepackage{color}
 \usepackage{listings}
 \usepackage{hyperref}
+
+% Configuration
+\definecolor{ligthYellow}{RGB}{255,255,229}
+
+\lstset{
+language=bash,
+numbers=left,
+numberstyle=\small,
+numbersep=8pt,
+basicstyle=\small\ttfamily,
+tabsize=4,
+showspaces=false,
+showstringspaces=false,
+stringstyle=\color{red}\ttfamily,
+commentstyle=\color{green}\ttfamily,
+breaklines=true,
+frame = single,
+framexleftmargin=15pt,
+backgroundcolor=\color{ligthYellow}}
 
 % Theme https://github.com/matze/mtheme
 \usetheme[progressbar=frametitle]{metropolis}
