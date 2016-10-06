@@ -145,22 +145,210 @@ L'option \lstinline{--global} permet de configurer \texttt{git} pour tous vos au
 GitKrakren demande de créer un compte par défaut pour pouvoir l'utiliser, ensuite il vous introduit rapidement sur son interface.
 \end{frame}
 
+\section{Premier pas avec Git}
 
-  \end{frame}
-  \section{Premier pas avec Git}
-  \begin{frame}{git init}
+\begin{frame}[fragile]
+\frametitle{git init}
 
-  \end{frame}
-  \begin{frame}{git add}
+\begin{itemize}
+\item Cette commande permet d'initialiser un dossier en un nouveau dépot local \texttt{git} où tout le projet versionné sera contenu dedans
 
-  \end{frame}
-  \begin{frame}{git commit}
+\item Cela crée un sous-dossier \texttt{.git} où tout la magie de git se fait
+\item Exemple
+\begin{lstlisting}
+mkdir newProject
+cd newProject/
+git init
+\end{lstlisting}
+\end{itemize}
+\end{frame}
 
-  \end{frame}
-  \section{Manipuler l'historique}
   \section{Les branches}
   \section{Le travail en groupe}
+\begin{frame}{Les trois zones de git}
+\begin{figure}
+    \centering
+    \includegraphics[height=6cm]{img/git-local-operations.png}
+    \caption{Tiré du site \url{https://www.camillebaronnet.fr/blog/fr/gitkraken-enfin-outil-visuel-moderne-pour-git}}
+\end{figure}
+\end{frame}
 
+\begin{frame}{Le cycle de vie d'un fichier}
+\begin{figure}
+    \centering
+    \includegraphics[height=6cm]{img/git-filestatuslifecycle.png}
+    \caption{Tiré du site \url{https://www.camillebaronnet.fr/blog/fr/gitkraken-enfin-outil-visuel-moderne-pour-git}}
+\end{figure}
+\end{frame}
 
+\begin{frame}[fragile]
+\frametitle{git status}
+
+\begin{itemize}
+\item Cette commande permet de connaître l'état du projet sous \texttt{git}
+\item Elle permet d'obtenir des informations sur les différentes zones
+\item Conseil : Utiliser là dés que vous avez un doute sur l'état de votre projet
+\item Exemple
+\begin{lstlisting}
+git status
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{git add}
+
+\begin{itemize}
+\item Cette commande permet d'ajouter un ou plusieurs fichier(s)/dossier(s) que l'on veut versionné(s) dans la zone de \textbf{staging} afin de préparer le prochain \textbf{commit}
+\item Attention, les fichiers ne sont pas encore dans l'historique de \texttt{git}
+\item Exemple
+\begin{lstlisting}
+touch test.txt
+git add test.txt
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{git mv}
+
+\begin{itemize}
+\item Cette commande permet de déplacer un ou plusieurs fichier(s)/dossier(s) dans un autre dossier qui est/sont déjà versionné(s) par \texttt{git}
+\item Attention, \texttt{git} suit cette modification et la place dans la zone de \textbf{staging}
+\item Exemple
+\begin{lstlisting}
+mkdir folder
+git mv test.txt folder/test.txt
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{git rm}
+
+\begin{itemize}
+\item Cette commande permet de supprimer un ou plusieurs fichier(s)/dossier(s) du projet qui est/sont déjà versionné(s) par \texttt{git}
+\item Attention, \texttt{git} suit cette modification et la place dans la zone de \textbf{staging}
+\item Exemple
+\begin{lstlisting}
+git rm folder/test.txt
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{git commit}
+
+\begin{itemize}
+\item Cette commande permet de créer un snapshot de l'état actuel du projet
+\item Elle se fait généralement après des modifications de fichiers et placés dans la zone de \textbf{staging}
+\item On l'identifie avec un message complet et précis
+\item Exemple
+\begin{lstlisting}
+git commit # Ouvre l'editeur pour le message
+git commit -m "Mon message"
+\end{lstlisting}
+\item Quand \textbf{commit} vos fichiers ?
+\end{itemize}
+\end{frame}
+
+\section{Voir/Manipuler l'historique}
+
+\begin{frame}[fragile]
+\frametitle{git log}
+
+\begin{itemize}
+\item Cette commande permet de visualiser et/ou d'obtenir des informations sur les commits du projet
+\item On peut remarquer que chaque commit est identifé par une clé unique qui est utile pour différentes commmandes de \texttt{git}
+\item Exemple
+\begin{lstlisting}
+git log
+\end{lstlisting}
+\item Options utiles
+	\begin{itemize}
+		\item \lstinline{--oneline} Afficher chaque commit sur une seule ligne
+		\item \lstinline{-n N} Afficher les N derniers commits 
+		\item \lstinline{-p file} Afficher les commits liés à un fichier 
+		\item \lstinline{-author name} Afficher les commits liés à une personne
+		\item \lstinline{--pretty} et \lstinline{--graph} Affichage plus joli
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{git diff}
+
+\begin{itemize}
+\item Cette commande permet de comparer les différences entre le \textbf{dernier commit} et votre projet actuel d'un ou de tous les fichiers
+\begin{lstlisting}
+git diff
+git diff <file>
+\end{lstlisting}
+
+\item Pour voir celles liées à la zone de \textbf{staging}, rajoutez l'option \lstinline{--staged}
+\begin{lstlisting}
+git diff --staged
+\end{lstlisting}
+
+\item Pour voir entre un commit particulier et votre projet actuel ou entre deux commits
+\begin{lstlisting}
+git diff <commit>
+git diff <commit>..<commit>
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{git commit --amend}
+
+\begin{itemize}
+\item Cette commande permet d'éditer le dernier commit de votre projet
+\item Permet de corriger une erreur ou ajouter un fichier oublié
+\item Attention, ne jamais le faire une fois le commit envoyé sur \textbf{Github} ou autre serveur
+\item Exemple
+\begin{lstlisting}
+git commit --amend
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{git checkout}
+
+\begin{itemize}
+\item Cette commande permet de revenir en tant que \textbf{spectateur} sur un commit précédent
+\item Attention, \texttt{git} ne modifie en rien quelque chose, vous ne faites que regarder
+\item Exemple
+\begin{lstlisting}
+git checkout fa1751b
+git checkout master # Revenir au dernier commit
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{git revert}
+
+\begin{itemize}
+\item Cette commande permet d'inverser un commit
+\item Elle va crée un \textbf{nouveau commit} pour supprimer les changements du commit sélectionné
+\item Exemple
+\begin{lstlisting}
+git revert fa1751b
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Autres commandes utiles}
+
+\begin{itemize}
+\item \lstinline{git reset} (Commande \textbf{dangeureuse})
+\item \lstinline{git rebase} (Commande \textbf{dangeureuse})
+\item ...
+\end{itemize}
+\end{frame}
+
+\section{Les branches}
 \plain{Questions?}
 \end{document}
