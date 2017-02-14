@@ -1,0 +1,12 @@
+s/VCS/systeme gestion version
+GUI
+editor for commit msg
+simplifier options git log
+    notion commit ID + ref
+git diff ->  visuel
+branching -> copy git book
+pull & push : ajouter exemples
+github vs bitbucket
+Références: git book + github
+
+
