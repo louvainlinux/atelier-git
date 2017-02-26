@@ -10,23 +10,25 @@
 \usepackage{listings}
 \usepackage{hyperref}
 
+\usepackage{comment}
+
 % Configuration
 \definecolor{ligthYellow}{RGB}{255,255,229}
 
 \lstset{
 language=bash,
-numbers=left,
-numberstyle=\small,
-numbersep=8pt,
+%numbers=left,
+%numberstyle=\small,
+%numbersep=8pt,
 basicstyle=\small\ttfamily,
-tabsize=4,
+tabsize=2,
 showspaces=false,
 showstringspaces=false,
 stringstyle=\color{red}\ttfamily,
 commentstyle=\color{green}\ttfamily,
 breaklines=true,
 frame = single,
-framexleftmargin=15pt,
+%framexleftmargin=15pt,
 backgroundcolor=\color{ligthYellow}}
 
 % Theme https://github.com/matze/mtheme
@@ -36,7 +38,7 @@ backgroundcolor=\color{ligthYellow}}
 \title{Présentation Git}
 \subtitle{Un outil de collaboration puissant}
 \date{\today}
-\author{Denis Pettens \and Pablo Gonzalez Alvarez}
+\author{Denis Pettens \and Pablo Gonzalez Alvarez \and Gaëtan Cassiers}
 \institute{Louvain-li-Nux}
 \titlegraphic{\hfill\includegraphics[height=2cm]{img/logo.png}}
 
@@ -62,64 +64,48 @@ Comment gérez-vous actuellement un projet ?
     \item Utiliser une Dropbox, Google Drive, ... (\textbf{Déjà mieux mais toujours risqué ou manque de fonctionalités})
 \end{itemize}
 
-Solution : Utiliser un \textbf{VCS}
+Solution : Utiliser un \textbf{système de gestion de version décentralisé}
+(Distributed Version Control System (DVCS) pour les anglophiles).
 \end{frame}
 
-\begin{frame}{Monsieur, c'est quoi Git?}
+\begin{frame}{Un DVCS ?}
+    \begin{itemize}
+        \item \textbf{Version} Enregistre des \og{}instantanés\fg{} du projet.
+        \item \textbf{Gestion} Revenir en arrière, voir des différences,
+            fusionner des modifications.
+        \item \textbf{Décentralisé} Chacun travaille sur sa copie, et on fusionne les modifications.
+        \item \textbf{Projet} n'importe quel répertoire (\og dossier\fg). Donc n'importe quoi !
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Et Git dans tout ça ?}
 \begin{itemize}
-    \item \texttt{Git} a été créé en 2005 par \textbf{Linus Torvalds} (auteur du kernel \texttt{Linux});
-    \item Il est le logiciel de gestion de versions décentralisé (\textbf{VCS}) le plus utilisé au monde en 2016;
-    \item Il permet donc de suivre dans le temps l'avancement d'un projet de son début à sa fin;
-    \item Il garde en mémoire tout ce que vous avez fait un jour dans votre projet et permet de les éditer facilement;
-    \item ... \footnote{Tiré en partie du site (\url{https://git-scm.com})}
+    \item \texttt{Git} a été créé en 2005 par \textbf{Linus Torvalds} (auteur de \texttt{Linux});
 \end{itemize}
-\end{frame}
-
-\begin{frame}{Pourquoi l'utiliser?}
+Ses avantages:
 \begin{itemize}
-    \item Le plus connu et utilisé (communauté très présente);
+    \item Le plus connu et utilisé (90~\% du marché, communauté très présente);
     \item Vitesse;
-    \item Conception simple;
     \item Facile d'utilisation mais aussi très puissant;
-    \item Support pour les développements non linéaires (milliers de branches parallèles);
-    \item Complètement distribué;
-    \item Capacité à gérer efficacement des projets d'envergure tels que le noyau Linux (vitesse et compacité des données).\footnote{Tiré en partie du site (\url{https://git-scm.com})}
+    \item Distribué (pas besoin de connexion internet tout le temps);
 \end{itemize}
-\end{frame}
 
-\begin{frame}{GitKraken}
+Ses inconvénients:
 \begin{itemize}
-    \item \texttt{git} ne possède pas d'interface graphique, tout se fait en ligne de commande;
-    \item Simple d'utilisation;
-    \item Idéale pour avoir une vue globale de son projet;
-    \item Cross-plaform;
-    \item Malheureusement, il n'est pas Libre.
+    \item De nouveaux concepts
+    \item Interface principale en ligne de commande
+    \item Mais il existe aussi des interfaces graphiques
 \end{itemize}
-
-\textbf{Autres alternatives} : \texttt{gitg}, \texttt{GitHub Desktop}, \texttt{SourceTree}, ...
-\end{frame}
-
-\begin{frame}{GtiKraken : Image}
-\begin{figure}
-    \centering
-    \includegraphics[height=6cm]{img/gitkraken.png}
-    \caption{Tiré de \url{https://www.camillebaronnet.fr/blog/fr/gitkraken-enfin-outil-visuel-moderne-pour-git}}
-\end{figure}
 \end{frame}
 
 \section{Instalation et configuration}
-\begin{frame}{Installer Git et GiKraken}
+\begin{frame}{Installer Git}
 
 \textbf{Git}
 \begin{itemize}
-\item \textbf{Ubuntu} : \lstinline{sudo apt-get install git}
-\item \textbf{OS X} : \url{https://sourceforge.net/projects/git-osx-installer/}
-\item \textbf{Windows} : \url{https://git-for-windows.github.io/}
-\end{itemize}
-
-\textbf{GitKraken}
-\begin{itemize}
-\item \textbf{Toutes plateformes} : \url{https://www.gitkraken.com/}
+    \item[] \textbf{Ubuntu} : \lstinline{sudo apt-get install git}
+    \item[] \textbf{OS X} : \url{https://sourceforge.net/projects/git-osx-installer/}
+    \item[] \textbf{Windows} : \url{https://git-for-windows.github.io/}
 \end{itemize}
 \end{frame}
 
@@ -141,295 +127,354 @@ git config --global user.email "jules.dupont@email.fr"
 \end{itemize}
 
 L'option \lstinline{--global} permet de configurer \texttt{git} pour tous vos autres projets sur votre PC.
-
-GitKrakren demande de créer un compte par défaut pour pouvoir l'utiliser, ensuite il vous introduit rapidement sur son interface.
 \end{frame}
 
 \section{Premier pas avec Git}
 
+\begin{frame}
+\frametitle{Concept: le \textbf{commit}}
+
+\begin{center}
+    \includegraphics[width=0.9\textwidth]{img/commits.png}
+\end{center}
+\footnotesize{Les illustrations non-sourcées viennent de \url{https://git-scm.com/book}.}
+\end{frame}
+
 \begin{frame}[fragile]
-\frametitle{git init}
-
+\frametitle{Commande: git init}
 \begin{itemize}
-\item Cette commande permet d'initialiser un dossier en un nouveau dépot local \texttt{git} où tout le projet versionné sera contenu dedans
-
+\item Initialise un dossier en un nouveau dépot \texttt{git}.
+\item Exemple
+\begin{lstlisting}
+$ mkdir newProject
+$ cd newProject
+$ git init
+\end{lstlisting}
 \item Cela crée un sous-dossier \texttt{.git} où tout la magie de git se fait
-\item Exemple
+\item Vous mettrez tous les fichiers du projet dans \texttt{newProject}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Commande: git status}
+\begin{itemize}
+    \item \texttt{git} vous dit o\`u vous en êtes.
+    \item Exemple
 \begin{lstlisting}
-mkdir newProject
-cd newProject/
-git init
+$ git status
+On branch master
+Initial commit
+nothing to commit (create/copy files and use "git add" to track)
+\end{lstlisting}
+\item À utiliser sans modération !
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Commande: git add}
+\begin{itemize}
+    \item Ajoute un fichier dans le projet \texttt{git}.
+    \item Exemple
+\begin{lstlisting}
+$ vi notes.txt # copier un fichier
+$ git status
+#[...]
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	notes.txt
+nothing added to commit but untracked files present (use "git add" to track)
+$ git add notes.txt
+#[...]
+Changes to be committed:
+  (use "git rm --cached <file>.." to unstage)
+	new file:   notes.txt
 \end{lstlisting}
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Les trois zones de git}
+\begin{frame}[fragile]
+\frametitle{Commande: git commit}
+\begin{itemize}
+    \item Crée un \texttt{commit} sur base des fichiers ajoutés.
+    \item Exemple
+\begin{lstlisting}
+# toujours verifier ce qu'on commit
+$ git status
+#[...]
+Changes to be committed:
+  (use "git rm --cached <file>.." to unstage)
+	new file:   notes.txt
+$ git commit
+# Ouvre un editeur de texte
+# Editer, sauvegarder et fermer
+[master (root-commit) 12f87b9] ajout de le premiere note
+ 1 file changed, 1 insertion(+)
+\end{lstlisting}
+\item Message de \texttt{commit}: décrit les changements effectués.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{En résumé: le cycle de vie d'un fichier}
 \begin{figure}
     \centering
-    \includegraphics[height=6cm]{img/git-local-operations.png}
-    \caption{Tiré du site \url{https://www.camillebaronnet.fr/blog/fr/gitkraken-enfin-outil-visuel-moderne-pour-git}}
+    \includegraphics[width=\textwidth]{img/areas.png}
 \end{figure}
 \end{frame}
 
-\begin{frame}{Le cycle de vie d'un fichier}
-\begin{figure}
-    \centering
-    \includegraphics[height=6cm]{img/git-filestatuslifecycle.png}
-    \caption{Tiré du site \url{https://www.camillebaronnet.fr/blog/fr/gitkraken-enfin-outil-visuel-moderne-pour-git}}
-\end{figure}
-\end{frame}
-
 \begin{frame}[fragile]
-\frametitle{git status}
+\frametitle{Commande: git log}
 
 \begin{itemize}
-\item Cette commande permet de connaître l'état du projet sous \texttt{git}
-\item Elle permet d'obtenir des informations sur les différentes zones
-\item Conseil : Utiliser là dés que vous avez un doute sur l'état de votre projet
-\item Exemple
+    \item Visualiser l'historique du projet
+    \item Exemple
 \begin{lstlisting}
-git status
+$ git log
+commit 12f87b95caff8cbeb5ce0717528d77e27
+Author: Louvain Linux<info@louvainlinux.org>
+Date:   Sun Feb 26 17:51:16 2017 +0100
+
+    ajout de le premiere note
 \end{lstlisting}
+    \item Ouvre parfois un \texttt{pager}. Se déplacer avec les flèches haut/bas, quitter avec \texttt{q}.
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{git add}
-
-\begin{itemize}
-\item Cette commande permet d'ajouter un ou plusieurs fichier(s)/dossier(s) que l'on veut versionné(s) dans la zone de \textbf{staging} afin de préparer le prochain \textbf{commit}
-\item Attention, les fichiers ne sont pas encore dans l'historique de \texttt{git}
-\item Exemple
+    \frametitle{Astuce: de l'aide !}
+    On peut trouver de l'aide:
+    \begin{itemize}
+        \item rapide: \texttt{git [command] -h}
 \begin{lstlisting}
-touch test.txt
-git add test.txt
+$ git log -h
+usage: git log [<options>] [<revision-range>] [[--] <path>...]
+   or: git show [<options>] <object>...
+
+    -q, --quiet           suppress diff output
+    --source              show source
+[...]
 \end{lstlisting}
-\end{itemize}
+        \item plus détaillée: \lstinline{git [command] --help}
+    \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{git mv}
-
-\begin{itemize}
-\item Cette commande permet de déplacer un ou plusieurs fichier(s)/dossier(s) dans un autre dossier qui est/sont déjà versionné(s) par \texttt{git}
-\item Attention, \texttt{git} suit cette modification et la place dans la zone de \textbf{staging}
-\item Exemple
+\frametitle{Exercice 1}
 \begin{lstlisting}
-mkdir folder
-git mv test.txt folder/test.txt
+$ mkdir newProject
+$ cd newProject
+$ git status
+$ # Creer un fichier
+$ git add monfichier.txt monfichier2.png
+$ git commit
+$ # Editer le message de commit
+$ git log
 \end{lstlisting}
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{git rm}
-
-\begin{itemize}
-\item Cette commande permet de supprimer un ou plusieurs fichier(s)/dossier(s) du projet qui est/sont déjà versionné(s) par \texttt{git}
-\item Attention, \texttt{git} suit cette modification et la place dans la zone de \textbf{staging}
-\item Exemple
+Utile:
 \begin{lstlisting}
-git rm folder/test.txt
+$ git --help # liste des commandes git
+$ git [commande] --help
 \end{lstlisting}
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{git commit}
-
-\begin{itemize}
-\item Cette commande permet de créer un snapshot de l'état actuel du projet
-\item Elle se fait généralement après des modifications de fichiers et placés dans la zone de \textbf{staging}
-\item On l'identifie avec un message complet et précis
-\item Exemple
-\begin{lstlisting}
-git commit # Ouvre l'editeur pour le message
-git commit -m "Mon message"
-\end{lstlisting}
-\item Quand \textbf{commit} vos fichiers ?
-\end{itemize}
-\end{frame}
-
-\section{Voir/Manipuler l'historique}
-
-\begin{frame}[fragile]
-\frametitle{git log}
-
-\begin{itemize}
-\item Cette commande permet de visualiser et/ou d'obtenir des informations sur les commits du projet
-\item On peut remarquer que chaque commit est identifé par une clé unique qui est utile pour différentes commmandes de \texttt{git}
-\item Exemple
-\begin{lstlisting}
-git log
-\end{lstlisting}
-\item Options utiles
-	\begin{itemize}
-		\item \lstinline{--oneline} Afficher chaque commit sur une seule ligne
-		\item \lstinline{-n N} Afficher les N derniers commits 
-		\item \lstinline{-p file} Afficher les commits liés à un fichier 
-		\item \lstinline{--author name} Afficher les commits liés à une personne
-		\item \lstinline{--pretty} et \lstinline{--graph} Affichage plus joli
-	\end{itemize}
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{git diff}
-
-\begin{itemize}
-\item Cette commande permet de comparer les différences entre le \textbf{dernier commit} et votre projet actuel d'un ou de tous les fichiers
-\begin{lstlisting}
-git diff
-git diff <file>
-\end{lstlisting}
-
-\item Pour voir celles liées à la zone de \textbf{staging}, rajoutez l'option \lstinline{--staged}
-\begin{lstlisting}
-git diff --staged
-\end{lstlisting}
-
-\item Pour voir entre un commit particulier et votre projet actuel ou entre deux commits
-\begin{lstlisting}
-git diff <commit>
-git diff <commit>..<commit>
-\end{lstlisting}
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{git commit --amend}
-
-\begin{itemize}
-\item Cette commande permet d'éditer le dernier commit de votre projet
-\item Permet de corriger une erreur ou ajouter un fichier oublié
-\item Attention, ne jamais le faire une fois le commit envoyé sur \textbf{Github} ou autre serveur
-\item Exemple
-\begin{lstlisting}
-git commit --amend
-\end{lstlisting}
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{git checkout}
-
-\begin{itemize}
-\item Cette commande permet de revenir en tant que \textbf{spectateur} sur un commit précédent
-\item Attention, \texttt{git} ne modifie en rien quelque chose, vous ne faites que regarder
-\item Exemple
-\begin{lstlisting}
-git checkout fa1751b
-git checkout master # Revenir au dernier commit
-\end{lstlisting}
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{git revert}
-
-\begin{itemize}
-\item Cette commande permet d'inverser un commit
-\item Elle va crée un \textbf{nouveau commit} pour supprimer les changements du commit sélectionné
-\item Exemple
-\begin{lstlisting}
-git revert fa1751b
-\end{lstlisting}
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Autres commandes utiles}
-
-\begin{itemize}
-\item \lstinline{git reset} (Commande \textbf{dangeureuse})
-\item \lstinline{git rebase} (Commande \textbf{dangeureuse})
-\item ...
-\end{itemize}
+Bonus: regardez l'aide de \texttt{git mv} et de \texttt{git rm}.
 \end{frame}
 
 \section{Les branches}
 
-\begin{frame}{Les Branches}
-\begin{figure}
-    \centering
-    \includegraphics[width=10cm]{img/git-history.png}
-    \caption{Tiré du site \url{http://hades.github.io/media/git/git-history.png}}
-\end{figure}
+\begin{frame}{De derrière: les objets git}
+    \begin{itemize}
+        \item Chaque commit a un identifiant: \textbf{12f87}b95caff8cbeb5ce0717528d77e27db5669c.
+    \end{itemize}
+    \includegraphics[width=0.8\textwidth]{img/commit-and-tree.png}
+\end{frame}
+
+\begin{frame}{De derrière: les parents}
+    \begin{itemize}
+        \item Chaque commit a un parent.
+    \end{itemize}
+    \includegraphics[width=\textwidth]{img/commits-and-parents.png}
+\end{frame}
+
+\begin{frame}{De derrière: les étiquettes}
+    \begin{itemize}
+        \item On peut mettre des étiquettes sur des commits.
+        \item \texttt{HEAD} est la position actuelle.
+    \end{itemize}
+    \includegraphics[width=\textwidth]{img/branch-and-history.png}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{git branch}
-
-\begin{itemize}
-\item Cette commande permet de gérer les branches de façon globale
-\item Permet de lister les branches
+    \frametitle{Commande: git branch}
+    \begin{itemize}
+        \item Une branche est une nouvelle étiquette.
 \begin{lstlisting}
-git branch
+$ git branch testing
 \end{lstlisting}
-\item Permet de créer une nouvelle branche <branche>
-\begin{lstlisting}
-git branch <branche>
-\end{lstlisting}
-\item Renomme la branche courante en <branche>
-\begin{lstlisting}
-git branch -m <branche>
-\end{lstlisting}
-\item Permet de supprimer une branche
-\begin{lstlisting}
-git branch -d <branche>
-\end{lstlisting}
-\end{itemize}
+        \item La branche par défaut est \texttt{master}.
+    \end{itemize}
+    \begin{center}
+        \includegraphics[width=0.8\textwidth]{img/head-to-master.png}
+    \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{git checkout}
-
-\begin{itemize}
-\item Cette commande permet aussi (en plus de voir des anciens commits) de changer de branches
-\item Exemple
+    \frametitle{Commande: git checkout}
+    \begin{itemize}
+        \item Permet de changer de branche.
 \begin{lstlisting}
-git branch develop
+$ git checkout testing
 \end{lstlisting}
-\item  En revanche, vous pouvez directement l'utiliser pour créer une nouvelle branche et se déplacer dessus
-\begin{lstlisting}
-git checkout -b <branche> 
-# equivaut a 
-git branch <branche>
-git checkout <branche>
-\end{lstlisting}
-\end{itemize}
+        \item La branche courante est celle qui suit les nouveaux commits.
+    \end{itemize}
+    \begin{center}
+        \includegraphics[width=0.8\textwidth]{img/head-to-testing.png}
+    \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{git merge}
-
-\begin{itemize}
-\item Cette commande permet de de ramener une branche sur une autre et ainsi de la fusionner. 
-\item Attention, la fusion de 2 branches se fait toujours à partir de la branche principale.
-\item Crée un commit de fusion
-\item La branche fusionnée ne sera pas affectée
-\item Exemple
+    \frametitle{Commande: git checkout (2)}
+    \begin{itemize}
+        \item La branche courante est celle qui suit les nouveaux commits.
+    \end{itemize}
 \begin{lstlisting}
-git merge <branche>
+$ [Quelques changements]
+$ git commit
 \end{lstlisting}
-\end{itemize}
+
+    \begin{center}
+        \includegraphics[width=\textwidth]{img/advance-testing.png}
+    \end{center}
+\end{frame}
+
+
+\begin{frame}[fragile]
+    \frametitle{Branches divergentes}
+    \begin{itemize}
+        \item Utilité: travailler sur des modifications indépendantes.
+    \end{itemize}
+\begin{lstlisting}
+$ git checkout master
+$ [Quelques changements]
+$ git commit
+\end{lstlisting}
+    \begin{center}
+        \includegraphics[width=0.8\textwidth]{img/advance-master.png}
+    \end{center}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{lstlisting}
+$ git log --oneline --decorate --graph --all
+* c2b9e (HEAD, master) made other changes
+| * 87ab2 (testing) made a change
+|/
+* f30ab add feature #32 - ability to add new formats to the
+* 34ac2 fixed bug #1328 - stack overflow under certain conditions
+* 98ca9 initial commit of my project
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Commande: git merge: fusionner des modifications}
+\begin{lstlisting}
+$ git checkout master
+Switched to branch 'master'
+$ git merge iss53
+Merge made by the 'recursive' strategy.
+index.html |    1 +
+1 file changed, 1 insertion(+)
+\end{lstlisting}
+\begin{center}
+    \includegraphics[width=\textwidth,trim=0 0 0 40, clip]{img/basic-merging-1.png}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Commande: git merge (2)}
+\begin{lstlisting}
+$ git merge iss53
+Merge made by the 'recursive' strategy.
+index.html |    1 +
+1 file changed, 1 insertion(+)
+\end{lstlisting}
+\begin{center}
+    \includegraphics[width=\textwidth,trim=0 0 0 40, clip]{img/basic-merging-2.png}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Conflits}
+\begin{lstlisting}
+$ git merge iss53
+Auto-merging index.html
+CONFLICT (content): Merge conflict in index.html
+Automatic merge failed; fix conflicts and then commit the result.
+$ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+    both modified:      index.html
+no changes added to commit (use "git add" and/or "git commit -a")
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{Conflits: résolution}
+\begin{lstlisting}
+<<<<<<< HEAD:index.html
+<div id="footer">contact : email.support@github.com</div>
+=======
+<div id="footer">
+ please contact us at support@github.com
+>>>>>>> iss53:index.html
+\end{lstlisting}
+\textbf{Editer le fichier}, ou
+(\textbf{Attention}: supprime les modifications de la branche mergée !)
+\lstinline{$ git checkout -- [fichier en conflit]}.
+Puis
+\begin{lstlisting}
+$ git add [fichier en conflit]
+$ git commit
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}{Exercice: les branches}
+
 \end{frame}
 
 \section{Le travail en groupe}
 
-\begin{frame}{Github vs Bitbucket}
+\begin{frame}{Github, Bitbucket, Gitlab}
 \begin{figure}
     \centering
-    \includegraphics[width=10cm]{img/github-bitbucket.png}
-    \caption{Tiré du site \url{https://media.licdn.com}}
+    \includegraphics[width=0.7\textwidth]{img/github-bitbucket.png} \\
+    \includegraphics[width=0.6\textwidth]{img/gitlab.png}
 \end{figure}
+\end{frame}
+
+\begin{frame}{Distribué... comment se synchroniser ?}
+    \begin{center}
+        \includegraphics[width=0.6\textwidth]{img/distributed.png}
+    \end{center}
+\end{frame}
+
+\begin{frame}{Mise en place}
+    \begin{center}
+        \includegraphics[width=\textwidth]{img/github-setup.png}
+    \end{center}
+\end{frame}
+
+\begin{frame}{Méthode de travail}
+    \begin{center}
+        \includegraphics[width=\textwidth]{img/github-workflow.jpg}
+    \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{git clone}
 
 \begin{itemize}
-\item Cette commande permet de cloner un répertoire \texttt{git} depuis un serveur principal
+\item Cloner un répertoire \texttt{git} depuis un serveur principal
 \item Exemple
 \begin{lstlisting}
 git clone <url>
@@ -441,7 +486,7 @@ git clone <url>
 \frametitle{git remote}
 
 \begin{itemize}
-\item Cette commande permet d'ajouter un serveur distant à votre répertoire \texttt{git} si vous n'avez pas cloner le répertoire depuis le serveur
+\item Ajouter un serveur distant à votre répertoire \texttt{git}
 \item Exemple
 \begin{lstlisting}
 git remote add origin <url>
@@ -454,7 +499,7 @@ git remote add origin <url>
 \frametitle{git pull}
 
 \begin{itemize}
-\item Cette commande permet de récupérer les dernières modifications depuis le serveur principal
+\item Récupérer les dernières modifications depuis le serveur principal
 \item Exemple
 \begin{lstlisting}
 git pull origin
@@ -466,7 +511,7 @@ git pull origin
 \frametitle{git push}
 
 \begin{itemize}
-\item Cette commande permet d'envoyer les dernières modifications locales sur le serveur principal
+\item Envoyer les dernières modifications locales sur le serveur principal
 \item Exemple
 \begin{lstlisting}
 git push origin master

@@ -1,12 +1,41 @@
-s/VCS/systeme gestion version
+Gaëtan
+------
+
+Ajouter license & ref vers site web.
+
+Pablo
+-----
+
+ordis UCL => windows : git bash
+ouvrir concole, notions...
+editor for commit msg => linux: gedit, windows: notepad ?? , mac os: ?? => demander Quentin / Damien
+
+Gaëtan
+------
+
+exercice branche
+bonus: detached HEAD
+
+Pablo
+-----
+
+Exercice intégré:
+    - fork repo llnux
+    - cloner
+    - branch
+    - modifs, add, commit
+    - push branch
+    - pull request -> upstream
+    - add remote upstream
+    - git pull
+
 GUI
-editor for commit msg
-simplifier options git log
-    notion commit ID + ref
-git diff ->  visuel
-branching -> copy git book
-pull & push : ajouter exemples
-github vs bitbucket
-Références: git book + github
+Références: git book + github + workflow github
+idées: github cheat sheet
+
+
+Faire un slide pré-conf. : intaller git + git salles info + url slides
+
+
 
 
