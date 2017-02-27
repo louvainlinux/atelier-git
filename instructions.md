@@ -5,8 +5,8 @@ Vous pouvez télécharger
 
 ##Deuxième exercice:
 
-+ [Énoncé](https://github.com/louvainlinux/atelier-git/master/ex2/enonce.md)
-+ [Solution](https://github.com/louvainlinux/atelier-git/master/ex2/solution.md)
++ [Énoncé](https://github.com/louvainlinux/atelier-git/blob/master/ex2/enonce.md)
++ [Solution](https://github.com/louvainlinux/atelier-git/blob/master/ex2/solution.md)
 + Avant de commencer l'exercice:
 ```
 $ git clone https://github.com/louvainlinux/atelier-git.git
