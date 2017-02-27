@@ -1,7 +1,3 @@
-Gaëtan
-------
-
-Ajouter license & ref vers site web.
 
 Pablo
 -----
