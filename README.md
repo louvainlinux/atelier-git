@@ -4,7 +4,7 @@ Présentation Git
 
 Conférence `git` du [Louvain-li-Nux](http://louvainlinux.org).
 
-[Télécharger les slides.](https://github.com/louvainlinux/atelier-git/blob/master/main.pdf)
+[Télécharger les slides.](https://raw.githubusercontent.com/louvainlinux/atelier-git/master/main.pdf)
 
 ## License
 
