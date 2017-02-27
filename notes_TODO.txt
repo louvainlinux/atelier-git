@@ -1,11 +1,3 @@
-
-Pablo
------
-
-ordis UCL => windows : git bash
-ouvrir concole, notions...
-editor for commit msg => linux: gedit, windows: notepad ?? , mac os: ?? => demander Quentin / Damien
-
 Gaëtan
 ------
 
@@ -24,14 +16,3 @@ Exercice intégré:
     - pull request -> upstream
     - add remote upstream
     - git pull
-
-GUI
-Références: git book + github + workflow github
-idées: github cheat sheet
-
-
-Faire un slide pré-conf. : intaller git + git salles info + url slides
-
-
-
-
