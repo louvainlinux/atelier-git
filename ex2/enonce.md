@@ -56,5 +56,5 @@ Les branches chapitre3 et illustration sont maintenant inutiles, vous pouvez les
 
 Vous pouvez créer une branche qui pointe directement sur un commit dans l'historique: `git branch nom-de-branche commit-ID`), vous pouvez donc revenir n'importe où dans l'historique.
 
-Pour voir les différences entre deux branches, utilisez `git diff`.
+Si vous voulez voir les différences entre deux branches: utilisez `git diff`.
 
