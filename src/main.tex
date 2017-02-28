@@ -130,13 +130,11 @@ Ses inconvénients:
 
 \section{Instalation et configuration}
 \begin{frame}{Installer Git}
+\textbf{Ubuntu} : \lstinline{sudo apt-get install git}
 
-\textbf{Git}
-\begin{itemize}
-    \item[] \textbf{Ubuntu} : \lstinline{sudo apt-get install git}
-    \item[] \textbf{OS X} : \url{https://sourceforge.net/projects/git-osx-installer/}
-    \item[] \textbf{Windows} : \url{https://git-for-windows.github.io/}
-\end{itemize}
+\textbf{OS X} : \url{https://sourceforge.net/projects/git-osx-installer/}
+
+\textbf{Windows} : \url{https://git-for-windows.github.io/}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -159,42 +157,35 @@ git config --global user.email "jules.dupont@email.fr"
 L'option \lstinline{--global} permet de configurer \texttt{git} pour tous vos autres projets sur votre PC.
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
 \frametitle{Configuration de base -- Éditeur de textes}
-\item \textbf{Linux}
-\begin{lstlisting}
+\textbf{Linux}\begin{lstlisting}
 git config --global core.editor "gedit"
-\end{lstlisting}
-\item \textbf{Windows}
-\begin{lstlisting}
+\end{lstlisting}\textbf{Windows}\begin{lstlisting}
 git config --global core.editor "notepad"
 \end{lstlisting}
-\item \textbf{Mac}
-\begin{lstlisting}
-git config --global core.editor "TextEdit" %nano
+\textbf{Mac}\begin{lstlisting}
+git config --global core.editor "TextEdit"
 \end{lstlisting}
 \end{frame}
 
 \section{Premier pas avec la ligne de commande}
 
-\begin{frame}
-\frametitle{Ligne de commande, késako?}
-\begin{itemize}
-    \item Où suis-je :
-    \begin{lstlisting}
-      $ pwd # pour Ubuntu/OS X
-        $ dir # pour Windows
-    \end{lstlisting}
-    \item Contenu du dossier actuel :
-    \begin{lstlisting}
-      $ ls
-    \end{lstlisting}
-    \item Se déplacer :
-    \begin{lstlisting}
-      $ cd <path> # aller à path
-        $ cd .. # remonter d'un dossier
-    \end{lstlisting}
-\end{itemize}
+\begin{frame}[fragile]
+\frametitle{Ligne de commande (aka shell), késako?}
+Où suis-je :
+\begin{lstlisting}
+$ pwd
+\end{lstlisting}
+Contenu du dossier actuel :
+\begin{lstlisting}
+$ ls
+\end{lstlisting}
+Se déplacer :
+\begin{lstlisting}
+$ cd <path> # aller a path
+$ cd .. # remonter d'un dossier
+\end{lstlisting}
 \end{frame}
 
 \section{Premier pas avec Git}
@@ -652,43 +643,46 @@ git push origin master
 \begin{frame}[fragile]
 \frametitle{Exemple avec GitHub}
   \begin{center}
-      \includegraphics[width=\textwidth]{github_pull_request}
+      \includegraphics[width=\textwidth]{img/github_pull_request}
   \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Exemple avec GitHub}
   \begin{center}
-      \includegraphics[width=\textwidth]{github_pull_request_cmp}
+      \includegraphics[width=\textwidth]{img/github_pull_request_cmp}
   \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Exemple avec GitHub -- Les commandes utiles}
-\begin{lstlistings}
+\begin{lstlisting}
 $ git clone https://github.com/username/repo_name.git # pour cloner un repo git depuis GitHub
-$ git add remote origin https://github.com/username/repo_name.git # pour ajouter un repo GitHub à un repo git existant
-$ git pull origin master # pour récupérer les modifications sur le repo GitHub
+$ git add remote origin https://github.com/username/repo_name.git # pour ajouter un repo GitHub a un repo git existant
+$ git pull origin master # pour recuperer les modifications sur le repo GitHub
 $ git push origin master # pour envoyer des modifications sur le repo GitHub
-\end{lstlistings}
+\end{lstlisting}
 \end{frame}
 
-\section{Pour aller plus loin ...}
+\begin{frame}{Pour aller plus loin ...}
 
-\begin{frame}{Références}
+Références
 \begin{itemize}
-    \item \url{https://git-scm.com/book}
-    \item \url{https://services.github.com/resources/}
-    \item \url{https://fr.atlassian.com/git/tutorials/}
+    \item \textbf{La référence: Git book}: \url{https://git-scm.com/book}
+    \item Github help: \url{https://help.github.com/}
 \end{itemize}
-\end{frame}
 
-\begin{frame}{GUI}
+GUI
     \begin{itemize}
+        \item \url{https://git-scm.com/docs/gitk} (Installé par défaut sous Windows)
       \item \url{https://www.gitkraken.com/}
-        \item \url{https://desktop.github.com/}
-        \item \url{https://git-cola.github.io/}
+      \item \url{https://desktop.github.com/}
+      \item D'autres: \url{https://git-scm.com/downloads/guis}
     \end{itemize}
+Github Student Pack
+\begin{itemize}
+    \item \url{https://education.github.com/pack}
+\end{itemize}
 \end{frame}
 
 \plain{Questions?}
