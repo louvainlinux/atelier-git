@@ -28,7 +28,7 @@ Vous décidez d'ajouter une illustration à votre histoire. Pour cela, créez un
 Troisième étape:
 ----------------
 
-Vous revenez sur la branche master pour rédiger le deuxième chapitre. Enregistrez-le dans git.
+Vous revenez sur la branche master pour modifier le deuxième chapitre. Faites quelques modifications dans le fichier `chap2.txt` et enregistrez-le dans git.
 
 Quatrième étape:
 ---------------
