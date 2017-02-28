@@ -12,6 +12,15 @@
 
 \usepackage{comment}
 
+\newcommand{\fullslideimage}[1]{%
+\begin{frame}[plain]
+\begin{tikzpicture}[remember picture,overlay]
+    \node[at=(current page.center)] {
+        \includegraphics[width=\paperwidth]{#1}
+    };
+\end{tikzpicture}
+\end{frame}}
+
 % Configuration
 \definecolor{ligthYellow}{RGB}{255,255,229}
 
@@ -48,8 +57,8 @@ backgroundcolor=\color{ligthYellow}}
 \begin{frame}
 \begin{center}
   Suivez cette présentation sur votre ordinateur :
-   \vspace{1cm}
-  \fbox{\Large\url{http://bit.ly/2mlKcv8}}
+
+  \fbox{\Large\url{https://github.com/louvainlinux/atelier-git}}
 \end{center}
 
 Préparez-vous à utiliser \texttt{git} :
@@ -69,10 +78,8 @@ Préparez-vous à utiliser \texttt{git} :
 \begin{frame}{Cette présentation}
     \begin{itemize}
         \item Cette présentation est sous license libre CC-BY 4.0.
-        \item Vous pouvez télécharger les slides à l'addresse
+        \item En ligne (slides en pdf et sources \LaTeX, exercices\ldots):
             \url{https://github.com/louvainlinux/atelier-git}
-        \item Les instructions pour les exercices sont à
-        \url{https://github.com/louvainlinux/atelier-git/blob/master/instructions.md}.
     \end{itemize}
 \end{frame}
 
@@ -342,7 +349,9 @@ Bonus: regardez l'aide de \texttt{git mv} et de \texttt{git rm}.
     \begin{itemize}
         \item Chaque commit a un identifiant: \textbf{12f87}b95caff8cbeb5ce0717528d77e27db5669c.
     \end{itemize}
+    \begin{center}
     \includegraphics[width=0.8\textwidth]{img/commit-and-tree.png}
+    \end{center}
 \end{frame}
 
 \begin{frame}{De derrière: les parents}
@@ -591,76 +600,23 @@ git push origin master
   \end{center}
 \end{frame}
 
-\begin{frame}[fragile]
-\frametitle{Exemple avec GitHub}
-  \begin{center}
-      \includegraphics[width=\textwidth]{img/github_account_home}
-  \end{center}
-\end{frame}
+\fullslideimage{img/github_account_home}
+\fullslideimage{img/github_new_project}
+\fullslideimage{img/github_new_project_setup}
+\fullslideimage{img/github_new_project_readme}
+\fullslideimage{img/github_new_project_gitignore}
+\fullslideimage{img/github_new_project_fork}
+\fullslideimage{img/github_pull_request}
+\fullslideimage{img/github_pull_request_cmp}
 
-\begin{frame}[fragile]
-\frametitle{Exemple avec GitHub}
-  \begin{center}
-      \includegraphics[width=\textwidth]{img/github_new_project}
-  \end{center}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Exemple avec GitHub}
-  \begin{center}
-      \includegraphics[width=\textwidth]{img/github_new_project_setup}
-  \end{center}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Exemple avec GitHub}
-  \begin{center}
-      \includegraphics[width=\textwidth]{img/github_new_project_setup}
-  \end{center}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Exemple avec GitHub}
-  \begin{center}
-      \includegraphics[width=\textwidth]{img/github_new_project_readme}
-  \end{center}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Exemple avec GitHub}
-  \begin{center}
-      \includegraphics[width=\textwidth]{img/github_new_project_gitignore}
-  \end{center}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Exemple avec GitHub}
-  \begin{center}
-      \includegraphics[width=\textwidth]{img/github_new_project_fork}
-  \end{center}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Exemple avec GitHub}
-  \begin{center}
-      \includegraphics[width=\textwidth]{img/github_pull_request}
-  \end{center}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Exemple avec GitHub}
-  \begin{center}
-      \includegraphics[width=\textwidth]{img/github_pull_request_cmp}
-  \end{center}
-\end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Exemple avec GitHub -- Les commandes utiles}
 \begin{lstlisting}
-$ git clone https://github.com/username/repo_name.git # pour cloner un repo git depuis GitHub
-$ git add remote origin https://github.com/username/repo_name.git # pour ajouter un repo GitHub a un repo git existant
-$ git pull origin master # pour recuperer les modifications sur le repo GitHub
-$ git push origin master # pour envoyer des modifications sur le repo GitHub
+$ git clone https://github.com/username/repo_name.git # cloner un repo GitHub
+$ git remote add origin https://github.com/username/repo_name.git # ajouter un repo GitHub a un repo git existant
+$ git pull origin master # recuperer les modifications sur le repo GitHub
+$ git push origin master # envoyer des modifications sur le repo GitHub
 \end{lstlisting}
 \end{frame}
 

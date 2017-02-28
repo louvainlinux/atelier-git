@@ -1,7 +1,7 @@
 Deuxième exercice: les branches. Enoncé
 =======================================
 
-Remarque: Cet exercice est volontairement trop compliqué. En pratique, on ne fait pas autant de branches pour de si petites modifications. N'hésitez jamais à utiliser les commandes `git status`, `git log` et `git log --oneline --pretty --graph` pour savoir où vous en êtes.
+Remarque: Cet exercice est volontairement trop compliqué. En pratique, on ne fait pas autant de branches pour de si petites modifications. N'hésitez jamais à utiliser les commandes `git status`, `git log` et `git log --oneline --decorate --graph --all` pour savoir où vous en êtes.
 
 
 Vous êtes écrivain. Vous rédigez une merveilleuse histoire, que vous voulez versionnez dans git.
