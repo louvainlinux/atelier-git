@@ -11,14 +11,17 @@ Préparation:
 
 Commencez par créer un dépôt git dans le dossier `repo_git`:
 ```
-$ cd atelier-git/ex2/repo_git
+$ cd atelier-git/ex1/repo_git
 $ git init
 ```
 
 Première étape (échauffement):
 -----------------------------
 
-Vous avez déjà rédigé les deux premiers chapitres. Ajoutez-les dans git et faites un commit.
+Vous avez déjà rédigé les deux premiers chapitres.
+(Ou vous les rédigez maintenant dans deux fichier texte séparer).
+Mais malencontreusement un faute de frappe s'est glisser dans le chapitre 1 ! (ajouter a votre chap 1 " SSSSSS " quelque part dans votre texte ainsi que 2 * "TTTTT" dans le mileux de votre texte).).
+Ajoutez-les dans git et faites un commit.
 
 Deuxième étape:
 ---------------
@@ -33,14 +36,15 @@ Vous revenez sur la branche master pour modifier le deuxième chapitre. Faites q
 Quatrième étape:
 ---------------
 
-Vous avez oublié d'ajouter la source de votre illustration. Revenez sur la branche "illustration" et versionnez le fichier source.txt.
+Vous avez oublié d'ajouter la source de votre illustration. Revenez sur la branche "illustration" et versionnez (ajouter) le fichier source.txt.
 
 Vous êtes satisfait des illustrations et voulez les ajouter à la branche principale (master). Pour cela, passer sur la branche master et fusionnez la branche illustration.
 
 Cinquième étape:
 ----------------
 
-Vous créez une branche pour rédiger le chapitre 3 (nommée chapitre3). Vous enregistrez ce fichier dans git.
+Vous créez une branche pour rédiger le chapitre 3 (nommée chapitre3).
+Vous enregistrez ce fichier dans git.
 
 Vous revenez sur master pour relire le premier chapitre, et vous corrigez une faute de frappe (supprimez les SSSSSS). Vous faites un commit.
 
