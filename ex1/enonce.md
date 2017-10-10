@@ -11,7 +11,12 @@ Préparation:
 
 Commencez par créer un dépôt git dans le dossier `repo_git`:
 ```
-$ cd atelier-git/ex1/repo_git
+$ mkdir atelier-git
+$ cd atleier-git
+$ mkdir ex1
+$ cd ex1
+$ mkdir repo_git
+$ cd repo_git
 $ git init
 ```
 
@@ -20,7 +25,7 @@ Première étape (échauffement):
 
 Vous avez déjà rédigé les deux premiers chapitres.
 (Ou vous les rédigez maintenant dans deux fichier texte séparer).
-Mais malencontreusement un faute de frappe s'est glisser dans le chapitre 1 ! (ajouter a votre chap 1 " SSSSSS " quelque part dans votre texte ainsi que 2 * "TTTTT" dans le mileux de votre texte).).
+Mais malencontreusement un faute de frappe s'est glisser dans le chapitre 1 ! (ajouter a votre chap 1 " SSSSSS " quelque part dans votre texte ainsi que 2 * "TTTTT" dans le mileux de votre texte).
 Ajoutez-les dans git et faites un commit.
 
 Deuxième étape:
