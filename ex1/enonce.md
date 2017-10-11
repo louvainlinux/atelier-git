@@ -12,7 +12,7 @@ Préparation:
 Commencez par créer un dépôt git dans le dossier `repo_git`:
 ```
 $ mkdir atelier-git
-$ cd atleier-git
+$ cd atelier-git
 $ mkdir ex1
 $ cd ex1
 $ mkdir repo_git
