@@ -1,0 +1,4 @@
+$pdf_mode = 1;
+$pdflatex = 'texfot lualatex -shell-escape -interaction=nonstopmode';
+$pdf_previewer = 'xdg-open';
+@default_files = ('main.tex');

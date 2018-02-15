@@ -1,7 +1,6 @@
 \documentclass{beamer}
 % Language/Font package
 \usepackage[utf8]{inputenc}
-\usepackage[francais]{babel}
 \usepackage[T1]{fontenc}
 
 % Base package
@@ -9,6 +8,7 @@
 \usepackage{color}
 \usepackage{listings}
 \usepackage{hyperref}
+\usepackage{todonotes}
 
 \usepackage{comment}
 
@@ -24,31 +24,17 @@
 % Configuration
 \definecolor{ligthYellow}{RGB}{255,255,229}
 
-\lstset{
-language=bash,
-%numbers=left,
-%numberstyle=\small,
-%numbersep=8pt,
-basicstyle=\small\ttfamily,
-tabsize=2,
-showspaces=false,
-showstringspaces=false,
-stringstyle=\color{red}\ttfamily,
-commentstyle=\color{green}\ttfamily,
-breaklines=true,
-frame = single,
-%framexleftmargin=15pt,
-backgroundcolor=\color{ligthYellow}}
-
 % Theme https://github.com/matze/mtheme
 \usetheme[progressbar=frametitle]{metropolis}
+
+\usepackage[french]{babel}
 
 % Title
 \title{Présentation Git}
 \subtitle{Un outil de collaboration puissant}
-\date{\today}
-\author{Denis Pettens \and Pablo Gonzalez Alvarez \and Gaëtan Cassiers}
-\institute{Louvain-li-Nux}
+\date{1\ier Mars 2018}
+\author{Gaëtan Cassiers \and Alexandre Fiset \and Pierre Ortegat}
+\institute{KAP Louvain-li-Nux}
 \titlegraphic{\hfill\includegraphics[height=2cm]{img/logo.png}}
 
 \begin{document}
@@ -58,20 +44,23 @@ backgroundcolor=\color{ligthYellow}}
 \begin{center}
   Suivez cette présentation sur votre ordinateur :
 
-  \fbox{\Large\url{https://github.com/louvainlinux/atelier-git}}
+  \fbox{\Large\url{https://louvainlinux.org/atelier-git}}
 \end{center}
 
 Préparez-vous à utiliser \texttt{git} :
+vous utiliserez le logiciel GitHub Desktop durant cette présentation.
+
+Prenez un peu d'avance, installez-le:
 \begin{itemize}
-    \item Sur les ordinateur Windows UCL ouvrez \texttt{git bash}
-    \item Ou installez \texttt{git} sur votre ordinateur :
+    \item Sur les ordinateur Windows UCL: suivez les instructions à l'addresse \url{https://louvainlinux.org/git-windows-ucl}.
+    \item Ou installez GitHub Desktop sur votre ordinateur :
     \begin{itemize}
-        \item \textbf{Ubuntu} : \lstinline{sudo apt-get install git}
-        \item \textbf{OS X} : \url{https://sourceforge.net/projects/git-osx-installer/}
-        \item \textbf{Windows} : \url{https://git-for-windows.github.io/}
+        \item \textbf{Ubuntu} : TODO: Tester RC et lien
+        \item \textbf{Windows ou OS X} : \url{https://desktop.github.com}
     \end{itemize}
 \end{itemize}
 \end{frame}
+
 
 \maketitle
 
@@ -110,92 +99,56 @@ Solution : Utiliser un \textbf{système de gestion de version décentralisé}
         \item \textbf{Version} Enregistre des \og{}instantanés\fg{} du projet.
         \item \textbf{Gestion} Revenir en arrière, voir des différences,
             fusionner des modifications.
-        \item \textbf{Décentralisé} Chacun travaille sur sa copie, et on fusionne les modifications.
-        \item \textbf{Projet} n'importe quel répertoire (\og dossier\fg). Donc n'importe quoi !
+        \item \textbf{Décentralisé} Chacun
+            \begin{itemize}
+                \item a sa copie (avec son historique) sur son PC,
+                \item peut mettre sa copie (et son historique) en ligne,
+                \item peut récupérer sur son PC les copies et historiques disponibles en ligne,
+                \item peut fusionner différentes copies (semi-)automatiquement.
+            \end{itemize}
+        \item \textbf{Projet} n'importe quel répertoire (\og dossier\fg). Donc
+            n'importe quoi : Bureautique, \LaTeX, code, images, musique\dots
     \end{itemize}
 \end{frame}
 
 \begin{frame}{Et Git dans tout ça ?}
-\begin{itemize}
-    \item \texttt{Git} a été créé en 2005 par \textbf{Linus Torvalds} (auteur de \texttt{Linux});
-\end{itemize}
-Ses avantages:
-\begin{itemize}
-    \item Le plus connu et utilisé (90~\% du marché, communauté très présente);
-    \item Vitesse;
-    \item Facile d'utilisation mais aussi très puissant;
-    \item Distribué (pas besoin de connexion internet tout le temps);
-\end{itemize}
+\texttt{Git} a été créé en 2005 par Linus Torvalds (auteur de
+\texttt{Linux}); le plus connu et utilisé.
 
-Ses inconvénients:
-\begin{itemize}
-    \item De nouveaux concepts
-    \item Interface principale en ligne de commande
-    \item Mais il existe aussi des interfaces graphiques
-\end{itemize}
+À l'origine, interface en ligne de commande.
+
+Aujourd'hui: aussi des interfaces graphiques, dont GitHub Desktop.
 \end{frame}
 
-\section{Installation et configuration}
-\begin{frame}{Installer Git}
-\textbf{Ubuntu} : \lstinline{sudo apt-get install git}
+\begin{frame}{Mais on m'avait parlé de GitHub !}
+    Souvenez-vous...
+    \begin{itemize}
+        \item \textbf{Décentralisé} Chacun
+            \begin{itemize}
+                \item peut mettre sa copie (et son historique) en ligne,
+                \item \dots
+            \end{itemize}
+    \end{itemize}
 
-\textbf{OS X} : \url{https://sourceforge.net/projects/git-osx-installer/}
+    Il y a plein d'"endroits" en ligne o\`u on peut envoyer son travail, GitHub
+    est le plus connu.
 
-\textbf{Windows} : \url{https://git-for-windows.github.io/}
+    En plus de ça, GitHub a des fonctionnalités pour interagir avec des collaborateurs.
 \end{frame}
 
-\begin{frame}[fragile]
-\frametitle{Configuration de base}
+\section{Principes de Git}
 
-Git a besoin de deux informations de base sur vous pour pouvoir travailler efficacement :
-
-\begin{itemize}
-\item \textbf{Nom et Prénom}
-\begin{lstlisting}
-git config --global user.name "Jules Dupont"
-\end{lstlisting}
-
-\item \textbf{Email}
-\begin{lstlisting}
-git config --global user.email "jules.dupont@email.fr"
-\end{lstlisting}
-\end{itemize}
-
-L'option \lstinline{--global} permet de configurer \texttt{git} pour tous vos autres projets sur votre PC.
+\begin{frame}{Concepts}
+    \begin{itemize}
+        \item espace de travail: les fichiers, répertoires... dans lesquels on
+            travaille. Ils n'ont rien de spécial par rapport à d'autres sur
+            l'ordinateur.
+        \item Dépôt: espace de travail + historique, sur un ordinateur.
+        \item Commit: "version", est le successeur d'une autre commit.
+        \item Historique: la "chaine" de tous les commits, du plus anciens.
+        \item Dépôt distant: un dépot qui se trouve chez GitHub.
+    \end{itemize}
 \end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Configuration de base -- Éditeur de textes}
-\textbf{Linux}\begin{lstlisting}
-git config --global core.editor "gedit"
-\end{lstlisting}\textbf{Windows}\begin{lstlisting}
-git config --global core.editor "notepad"
-\end{lstlisting}
-\textbf{Mac}\begin{lstlisting}
-git config --global core.editor "TextEdit"
-\end{lstlisting}
-\end{frame}
-
-\section{Premier pas avec la ligne de commande}
-
-\begin{frame}[fragile]
-\frametitle{Ligne de commande (aka shell), késako?}
-Où suis-je :
-\begin{lstlisting}
-$ pwd
-\end{lstlisting}
-Contenu du dossier actuel :
-\begin{lstlisting}
-$ ls
-\end{lstlisting}
-Se déplacer :
-\begin{lstlisting}
-$ cd <path> # aller a path
-$ cd .. # remonter d'un dossier
-\end{lstlisting}
-\end{frame}
-
-\section{Premier pas avec Git}
 
 \begin{frame}
 \frametitle{Concept: le \textbf{commit}}
@@ -206,144 +159,158 @@ $ cd .. # remonter d'un dossier
 \footnotesize{Les illustrations non-sourcées viennent de \url{https://git-scm.com/book}.}
 \end{frame}
 
-\begin{frame}[fragile]
-\frametitle{Commande: git init}
-\begin{itemize}
-\item Initialise un dossier en un nouveau dépôt \texttt{git}.
-\item Exemple
-\begin{lstlisting}
-$ mkdir newProject
-$ cd newProject
-$ git init
-\end{lstlisting}
-\item Cela crée un sous-dossier \texttt{.git} où tout la magie de git se fait
-\item Vous mettrez tous les fichiers du projet dans \texttt{newProject}
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Commande: git status}
-\begin{itemize}
-    \item \texttt{git} vous dit o\`u vous en êtes.
-    \item Exemple
-\begin{lstlisting}
-$ git status
-On branch master
-Initial commit
-nothing to commit (create/copy files and use "git add" to track)
-\end{lstlisting}
-\item À utiliser sans modération !
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Commande: git add}
-\begin{itemize}
-    \item Ajoute un fichier dans le projet \texttt{git}.
-    \item Exemple
-\begin{lstlisting}
-$ vi notes.txt # copier un fichier
-$ git status
-#[...]
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-  notes.txt
-nothing added to commit but untracked files present (use "git add" to track)
-$ git add notes.txt
-#[...]
-Changes to be committed:
-  (use "git rm --cached <file>.." to unstage)
-  new file:   notes.txt
-\end{lstlisting}
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Commande: git commit}
-\begin{itemize}
-    \item Crée un \texttt{commit} sur base des fichiers ajoutés.
-    \item Exemple
-\begin{lstlisting}
-# toujours verifier ce qu'on commit
-$ git status
-#[...]
-Changes to be committed:
-  (use "git rm --cached <file>.." to unstage)
-  new file:   notes.txt
-$ git commit
-# Ouvre un editeur de texte
-# Editer, sauvegarder et fermer
-[master (root-commit) 12f87b9] ajout de le premiere note
- 1 file changed, 1 insertion(+)
-\end{lstlisting}
-\item Message de \texttt{commit}: décrit les changements effectués.
-\end{itemize}
-\end{frame}
-
-\begin{frame}{En résumé: le cycle de vie d'un fichier}
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{img/areas.png}
-\end{figure}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Commande: git log}
-
-\begin{itemize}
-    \item Visualiser l'historique du projet
-    \item Exemple
-\begin{lstlisting}
-$ git log
-commit 12f87b95caff8cbeb5ce0717528d77e27
-Author: Louvain Linux<info@louvainlinux.org>
-Date:   Sun Feb 26 17:51:16 2017 +0100
-
-    ajout de le premiere note
-\end{lstlisting}
-    \item Ouvre parfois un \texttt{pager}. Se déplacer avec les flèches haut/bas, quitter avec \texttt{q}.
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-    \frametitle{Astuce: de l'aide !}
-    On peut trouver de l'aide:
+\begin{frame}{Actions}
     \begin{itemize}
-        \item rapide: \texttt{git [command] -h}
-\begin{lstlisting}
-$ git log -h
-usage: git log [<options>] [<revision-range>] [[--] <path>...]
-   or: git show [<options>] <object>...
-
-    -q, --quiet           suppress diff output
-    --source              show source
-[...]
-\end{lstlisting}
-        \item plus détaillée: \lstinline{git [command] --help}
+        \item Créer un dépot sur GitHub.
+        \item Cloner (faire une copie d') un dépot de GitHub sur son PC.
+        \item Modifier/créer des fichiers (pas avec Git !).
+        \item Ajouter un fichier modifié: il sera pris en compte dans le
+            prochain commit.
+        \item Faire un commit: créer une nouvelle version, qui contient les
+            fichiers ajoutés. On y ajoute un commentaire (qui décrit les
+            changements).
+        \item Consulter un historique.
+        \item Push: envoyer ses nouveaux commits sur GitHub.
+        \item Pull: récupérer des changements de GitHub (qui ont été envoyés
+            par quelqu'un d'autre).
+        \item Merge: quand on Pull et qu'on a aussi des nouveaux commits sur
+            son PC. Git essaye de fusionner automatiquement; s'il ne sais pas
+            le faire, il demande.
     \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]
-\frametitle{Exercice 1}
-\begin{lstlisting}
-$ mkdir newProject
-$ cd newProject
-$ git status
-$ # Creer un fichier
-$ git add monfichier.txt monfichier2.png
-$ git commit
-$ # Editer le message de commit
-$ git log
-\end{lstlisting}
-Utile:
-\begin{lstlisting}
-$ git --help # liste des commandes git
-$ git [commande] --help
-\end{lstlisting}
-Bonus: regardez l'aide de \texttt{git mv} et de \texttt{git rm}.
+\begin{frame}[standout]
+    Questions ?
 \end{frame}
 
-\section{Les branches}
+
+\section{Utilisation: en pratique}
+
+\begin{frame}{Créer un dépot sur GitHub}
+    TODO: screenshots
+\end{frame}
+
+\begin{frame}{Forker un dépot sur GitHub}
+    TODO: utile / nécessaire pour les exercices ?
+\end{frame}
+
+\begin{frame}{Ajouter un collaborateur sur GitHub}
+    TODO: screenshots
+\end{frame}
+
+\begin{frame}{Cloner un dépot sur son PC}
+    TODO: screenshots
+\end{frame}
+
+\begin{frame}{Ajouter des fichiers}
+    TODO: screenshots
+\end{frame}
+
+\begin{frame}{Voir ce qui est ajouté}
+    TODO: screenshots
+\end{frame}
+
+\begin{frame}{Remarque: fichier texte vs binaire}
+    \begin{itemize}
+        \item Fichiers texte: programme, \LaTeX\dots
+        \item Fichiers binaires: le reste: Word, Writer, images, sons, PDF\dots
+    \end{itemize}
+    TODO: screenshots
+\end{frame}
+
+\begin{frame}{Créer un commit}
+\begin{itemize}
+    \item Créer un \texttt{commit} sur base des fichiers ajoutés.
+    \item Message de \texttt{commit}: décrit les changements effectués.
+\end{itemize}
+    TODO: screenshots
+\end{frame}
+
+\begin{frame}{Visualiser l'historique}
+    TODO: screenshots
+\end{frame}
+
+\begin{frame}{Récupérer un fichier d'un commit passé}
+    TODO: screenshots
+\end{frame}
+
+\begin{frame}{Astuce: ignorer des fichiers}
+    Des fichiers qu'on ne veut jamais dans Git (résultats de compilation,
+    fichiers temporaires\dots) Cachez-les !
+
+    NB: Cela crée un fichier \texttt{.gitignore}: celui-là, on le versionne.
+
+    TODO: screenshots
+\end{frame}
+
+\begin{frame}{Push: envoyer des commits sur GitHub}
+    TODO: screenshots
+\end{frame}
+
+\begin{frame}{Pull: récupérer des commits qui sont sur GitHub}
+    TODO: screenshots
+\end{frame}
+
+\begin{frame}{Merge non-automatique: quand il y a des conflits}
+    TODO: screenshots
+\end{frame}
+
+\begin{frame}{Astuce: de l'aide !}
+    On peut trouver de l'aide:
+    TODO: A garder à cet endroit ?
+        Github help: \url{https://help.github.com/}
+\end{frame}
+
+
+\section{Installation et configuration}
+
+\begin{frame}{Installer GitHub desktop}
+\begin{itemize}
+    \item Sur les ordinateur Windows UCL: suivez les instructions à l'addresse {\small\url{https://louvainlinux.org/git-windows-ucl}}.
+    \item Ou installez GitHub Desktop sur votre ordinateur :
+    \begin{itemize}
+        \item \textbf{Ubuntu} : TODO: Tester RC et lien
+        \item \textbf{Windows ou OS X} : \url{https://desktop.github.com}
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Configuration de base}
+
+Git a besoin de deux informations de base sur vous pour pouvoir travailler
+efficacement :
+
+\begin{itemize}
+\item \textbf{Nom et Prénom}
+\item \textbf{Email}
+\end{itemize}
+TODO: screenshots
+
+%L'option \lstinline{--global} permet de configurer \texttt{git} pour tous vos autres projets sur votre PC.
+\end{frame}
+
+\begin{frame}{Configuration de base -- Éditeur de textes}
+    \textbf{Linux}
+    \textbf{Windows}
+    \textbf{Mac}
+    TODO: screenshots
+\end{frame}
+
+
+\section{Exercices}
+
+\begin{frame}{Exercice 1}
+    TODO
+\end{frame}
+
+\begin{frame}{Exercice 2}
+    TODO
+\end{frame}
+
+
+\section{Fonctionnalités plus avancées}
+
+\subsection{Les branches}
 
 \begin{frame}{De derrière: les objets git}
     \begin{itemize}
@@ -369,13 +336,9 @@ Bonus: regardez l'aide de \texttt{git mv} et de \texttt{git rm}.
     \includegraphics[width=\textwidth]{img/branch-and-history.png}
 \end{frame}
 
-\begin{frame}[fragile]
-    \frametitle{Commande: git branch}
+\begin{frame}{Créer une branche}
     \begin{itemize}
         \item Une branche est une nouvelle étiquette.
-\begin{lstlisting}
-$ git branch testing
-\end{lstlisting}
         \item La branche par défaut est \texttt{master}.
     \end{itemize}
     \begin{center}
@@ -383,264 +346,132 @@ $ git branch testing
     \end{center}
 \end{frame}
 
-\begin{frame}[fragile]
-    \frametitle{Commande: git checkout}
-    \begin{itemize}
-        \item Permet de changer de branche.
-\begin{lstlisting}
-$ git checkout testing
-\end{lstlisting}
-        \item La branche courante est celle qui suit les nouveaux commits.
-    \end{itemize}
-    \begin{center}
-        \includegraphics[width=0.8\textwidth]{img/head-to-testing.png}
-    \end{center}
+\begin{frame}{Créer une branche: en pratique}
+    TODO: screenshots
 \end{frame}
 
-\begin{frame}[fragile]
-    \frametitle{Commande: git checkout (2)}
-    \begin{itemize}
-        \item La branche courante est celle qui suit les nouveaux commits.
-    \end{itemize}
-\begin{lstlisting}
-$ [Quelques changements]
-$ git commit
-\end{lstlisting}
-
-    \begin{center}
-        \includegraphics[width=\textwidth]{img/advance-testing.png}
-    \end{center}
+\begin{frame}{Changer de branche}
+    La branche courante est celle qui suit les nouveaux commits.
+    \begin{columns}
+        \begin{column}{0.44\textwidth}
+            \begin{center}
+                \includegraphics[width=\textwidth]{img/head-to-testing.png}
+            \end{center}
+        \end{column}
+        \begin{column}{0.54\textwidth}
+            \includegraphics[width=\textwidth]{img/advance-testing.png}
+        \end{column}
+    \end{columns}
 \end{frame}
 
+\begin{frame}{Changer de branche: en pratique}
+    TODO: screenshots
+\end{frame}
 
-\begin{frame}[fragile]
-    \frametitle{Branches divergentes}
+\begin{frame}{Branches divergentes}
     \begin{itemize}
         \item Utilité: travailler sur des modifications indépendantes.
     \end{itemize}
-\begin{lstlisting}
-$ git checkout master
-$ [Quelques changements]
-$ git commit
-\end{lstlisting}
     \begin{center}
         \includegraphics[width=0.8\textwidth]{img/advance-master.png}
     \end{center}
 \end{frame}
 
-\begin{frame}[fragile]
-\begin{lstlisting}
-$ git log --oneline --decorate --graph --all
-* c2b9e (HEAD, master) made other changes
-| * 87ab2 (testing) made a change
-|/
-* f30ab add feature #32 - ability to add new formats to the
-* 34ac2 fixed bug #1328 - stack overflow under certain conditions
-* 98ca9 initial commit of my project
-\end{lstlisting}
+\begin{frame}{Résultat: embranchement dans l'historique}
+    TODO: screenshots
 \end{frame}
 
-\begin{frame}[fragile]
-    \frametitle{Commande: git merge: fusionner des modifications}
-\begin{lstlisting}
-$ git checkout master
-Switched to branch 'master'
-$ git merge iss53
-Merge made by the 'recursive' strategy.
-index.html |    1 +
-1 file changed, 1 insertion(+)
-\end{lstlisting}
+\begin{frame}{Fusionner des modifications}
 \begin{center}
-    \includegraphics[width=\textwidth,trim=0 0 0 40, clip]{img/basic-merging-1.png}
+    \includegraphics[width=0.9\textwidth,trim=0 0 0 40, clip]{img/basic-merging-1.png}
+    \includegraphics[width=\textwidth,trim=0 0 0 60, clip]{img/basic-merging-2.png}
 \end{center}
 \end{frame}
 
-\begin{frame}[fragile]
-    \frametitle{Commande: git merge (2)}
-\begin{lstlisting}
-$ git merge iss53
-Merge made by the 'recursive' strategy.
-index.html |    1 +
-1 file changed, 1 insertion(+)
-\end{lstlisting}
-\begin{center}
-    \includegraphics[width=\textwidth,trim=0 0 0 40, clip]{img/basic-merging-2.png}
-\end{center}
+\begin{frame}{Fusionner des modifications: en pratique}
+    TODO: screenshots
+
+    Et parfois il faut résoudre des conflits\dots
 \end{frame}
 
-\begin{frame}[fragile]
-    \frametitle{Conflits}
-\begin{lstlisting}
-$ git merge iss53
-Auto-merging index.html
-CONFLICT (content): Merge conflict in index.html
-Automatic merge failed; fix conflicts and then commit the result.
-$ git status
-On branch master
-You have unmerged paths.
-  (fix conflicts and run "git commit")
-Unmerged paths:
-  (use "git add <file>..." to mark resolution)
-    both modified:      index.html
-no changes added to commit (use "git add" and/or "git commit -a")
-\end{lstlisting}
-\end{frame}
 
-\begin{frame}[fragile]
-    \frametitle{Conflits: résolution}
-\begin{lstlisting}
-<<<<<<< HEAD:index.html
-<div id="footer">contact : email.support@github.com</div>
-=======
-<div id="footer">
- please contact us at support@github.com
->>>>>>> iss53:index.html
-\end{lstlisting}
-\textbf{Editer le fichier}, ou
-(\textbf{Attention}: supprime les modifications de la branche mergée !)
-\lstinline{$ git checkout -- [fichier en conflit]}.
-Puis
-\begin{lstlisting}
-$ git add [fichier en conflit]
-$ git commit
-\end{lstlisting}
-\end{frame}
+\subsection{Autre modèle de collaboration}
 
-\begin{frame}{Exercice: les branches}
-
-    \begin{itemize}
-        \item Les instructions pour les exercices sont à
-        \url{https://github.com/louvainlinux/atelier-git/blob/master/ex1/enonce.md}.
-    \item Essayez de le faire sans la solution.
-    \item N'hésitez pas à poser des questions !
-    \end{itemize}
-    
-\end{frame}
-
-\section{Le travail en groupe}
-
-\begin{frame}{Github, Bitbucket, Gitlab}
-\begin{figure}
-    \centering
-    \includegraphics[width=0.7\textwidth]{img/github-bitbucket.png} \\
-    \includegraphics[width=0.6\textwidth]{img/gitlab.png}
-\end{figure}
-\end{frame}
-
-\begin{frame}{Distribué... comment se synchroniser ?}
-    \begin{center}
-        \includegraphics[width=0.6\textwidth]{img/distributed.png}
-    \end{center}
-\end{frame}
-
-\begin{frame}{Mise en place}
+\begin{frame}{Fork -- Pull Request}
+    Une autre méthode de collaboration, très utilisée pour des larges projets
+    et/ou projets o\`u la contribution est ouverte à tous.
     \begin{center}
         \includegraphics[width=\textwidth]{img/github-setup.png}
     \end{center}
 \end{frame}
 
-\begin{frame}{Méthode de travail}
+\begin{frame}{Fork -- Pull Request: Méthode de travail}
+    Ajouter un "upstream". TODO: ref vers une explication / voir comment ça marche ave github desktop
     \begin{center}
         \includegraphics[width=\textwidth]{img/github-workflow.jpg}
     \end{center}
 \end{frame}
 
-\begin{frame}[fragile]
-\frametitle{git clone}
+\subsection{Divers}
 
-\begin{itemize}
-\item Cloner un répertoire \texttt{git} depuis un serveur principal
-\item Exemple
-\begin{lstlisting}
-git clone <url>
-\end{lstlisting}
-\end{itemize}
+\begin{frame}{Renommer un fichier}
+    TODO: screenshots
 \end{frame}
 
-\begin{frame}[fragile]
-\frametitle{git remote}
-
-\begin{itemize}
-\item Ajouter un serveur distant à votre répertoire \texttt{git}
-\item Exemple
-\begin{lstlisting}
-git remote add origin <url>
-\end{lstlisting}
-\end{itemize}
+\begin{frame}{Créer un dépôt local}
+    TODO: screenshots
 \end{frame}
 
+\section{Informations et ressources}
 
-\begin{frame}[fragile]
-\frametitle{git pull}
-
-\begin{itemize}
-\item Récupérer les dernières modifications depuis le serveur principal
-\item Exemple
-\begin{lstlisting}
-git pull origin
-\end{lstlisting}
-\end{itemize}
+\begin{frame}{Github, Bitbucket, Gitlab}
+    \begin{center}
+        \includegraphics[width=0.65\textwidth]{img/github-bitbucket.png} \\
+        \includegraphics[width=0.55\textwidth]{img/gitlab.png}
+    \end{center}
+    Pratiquement identiques (tous fonctionnent avec GitHub Desktop).
 \end{frame}
 
-\begin{frame}[fragile]
-\frametitle{git push}
+\begin{frame}{Github Student Pack}
+    Dépôts privés gratuits (tout comme sur Gitlab \& Bitbucket), et d'autres avantages: \url{https://education.github.com/pack}.
 
-\begin{itemize}
-\item Envoyer les dernières modifications locales sur le serveur principal
-\item Exemple
-\begin{lstlisting}
-git push origin master
-\end{lstlisting}
-\end{itemize}
+    Nécessite d'ajouter l'addresse \texttt{...@student.uclouvain.be} au compte
+    GitHub.
 \end{frame}
 
-\begin{frame}[fragile]
-\frametitle{Exemple de collaboration avec GitHub}
-  \begin{center}
-      \includegraphics[width=\textwidth]{img/github_home}
-  \end{center}
-\end{frame}
+\begin{frame}{Interface en ligne de commande}
+    Utilisée par beaucoup de gens , très puissante si vous êtes à l'aise avec
+    un terminal.
 
-\fullslideimage{img/github_account_home}
-\fullslideimage{img/github_new_project}
-\fullslideimage{img/github_new_project_setup}
-\fullslideimage{img/github_new_project_readme}
-\fullslideimage{img/github_new_project_gitignore}
-\fullslideimage{img/github_new_project_fork}
-\fullslideimage{img/github_pull_request}
-\fullslideimage{img/github_pull_request_cmp}
-
-
-\begin{frame}[fragile]
-\frametitle{Exemple avec GitHub -- Les commandes utiles}
-\begin{lstlisting}
-$ git clone https://github.com/username/repo_name.git # cloner un repo GitHub
-$ git remote add origin https://github.com/username/repo_name.git # ajouter un repo GitHub a un repo git existant
-$ git pull origin master # recuperer les modifications sur le repo GitHub
-$ git push origin master # envoyer des modifications sur le repo GitHub
-\end{lstlisting}
-\end{frame}
-
-\begin{frame}{Pour aller plus loin ...}
-
-Références
-\begin{itemize}
-    \item \textbf{La référence: Git book}: \url{https://git-scm.com/book}
-    \item Github help: \url{https://help.github.com/}
-\end{itemize}
-
-GUI
+    Installation:
     \begin{itemize}
-        \item \url{https://git-scm.com/docs/gitk} (Installé par défaut sous Windows)
-      \item \url{https://www.gitkraken.com/}
-      \item \url{https://desktop.github.com/}
-      \item D'autres: \url{https://git-scm.com/downloads/guis}
+        \item \textbf{Ubuntu} : \texttt{sudo apt-get install git}
+        \item \textbf{OS X} : \url{https://sourceforge.net/projects/git-osx-installer/}
+        \item \textbf{Windows} : \url{https://git-for-windows.github.io/} (déjà
+            installé à l'UCL)
     \end{itemize}
-Github Student Pack
-\begin{itemize}
-    \item \url{https://education.github.com/pack}
-\end{itemize}
+
+    Documentation:
+    \begin{itemize}
+        \item \textbf{La référence: Git book}: \url{https://git-scm.com/book}:
+            abordable, bien expliqué et très complet !
+        \item \texttt{git help}, \texttt{git <command> help}
+        \item TODO: autre bon tuto ?
+    \end{itemize}
 \end{frame}
 
-\plain{Questions?}
+\begin{frame}{Autres interfaces graphiques}
+    \begin{itemize}
+        \item \url{https://git-scm.com/docs/gitk} (Installé par défaut sur PC UCL)
+        \item \url{https://www.gitkraken.com/}
+        \item \url{https://desktop.github.com/}
+        \item D'autres: \url{https://git-scm.com/downloads/guis}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[standout]
+    Questions ?
+\end{frame}
+
 \end{document}
+
