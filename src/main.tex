@@ -187,35 +187,58 @@ Aujourd'hui: aussi des interfaces graphiques, dont GitHub Desktop.
 \section{Utilisation: en pratique}
 
 \begin{frame}{Créer un dépot sur GitHub}
-    TODO: screenshots
+    \includegraphics[scale=0.35]{img/github_desktop/new_repo.png}
 \end{frame}
 
 \begin{frame}{Forker un dépot sur GitHub}
-    TODO: utile / nécessaire pour les exercices ?
+    \includegraphics[scale=0.30]{img/github_desktop/fork.png}
 \end{frame}
 
 \begin{frame}{Ajouter un collaborateur sur GitHub}
-    TODO: screenshots
+    \includegraphics[scale=0.33]{img/github_desktop/colaborator.png}
 \end{frame}
 
 \begin{frame}{Cloner un dépot sur son PC}
-    TODO: screenshots
+    Deux étapes:
+    \begin{enumerate}
+    \item Prendre l'url du dépôt sur Github
+    \item Donner l'url a Github desktop
+    \end{enumerate}
+	\begin{columns}    
+    	\begin{column}{0.5\textwidth}
+    		\includegraphics[scale=0.35]{img/github_desktop/clone_repo.png}\\ $ $\\
+		\end{column}
+		\begin{column}{0.5\textwidth}
+    		\includegraphics[scale=0.3]{img/github_desktop/clone_repo_desktop_2.png}\\
+    		{\small Pour ouvrir cette fenêtre : \\File $\rightarrow$ Clone repository}
+		\end{column}
+	\end{columns}
 \end{frame}
 
 \begin{frame}{Ajouter des fichiers}
-    TODO: screenshots
+	\begin{center}
+	    \includegraphics[scale=0.5]{img/github_desktop/add_files.png}
+	\end{center}
 \end{frame}
 
 \begin{frame}{Voir ce qui est ajouté}
-    TODO: screenshots
+	\begin{center}
+	    \includegraphics[scale=0.5]{img/github_desktop/see_added.png}
+	\end{center}
 \end{frame}
 
 \begin{frame}{Remarque: fichier texte vs binaire}
     \begin{itemize}
-        \item Fichiers texte: programme, \LaTeX\dots
-        \item Fichiers binaires: le reste: Word, Writer, images, sons, PDF\dots
+        \item Fichiers texte: programme, \LaTeX\dots\\
+        \begin{center}
+		    \includegraphics[scale=0.3]{img/github_desktop/see_added.png}\\
+        \end{center}
+        \item Fichiers binaires: le reste: Word, Writer, images, sons, PDF\dots\\
+        \begin{center}
+	 	   \includegraphics[scale=0.12]{img/github_desktop/binary_file.png}
+        \end{center}
     \end{itemize}
-    TODO: screenshots
+
 \end{frame}
 
 \begin{frame}{Créer un commit}
@@ -223,15 +246,17 @@ Aujourd'hui: aussi des interfaces graphiques, dont GitHub Desktop.
     \item Créer un \texttt{commit} sur base des fichiers ajoutés.
     \item Message de \texttt{commit}: décrit les changements effectués.
 \end{itemize}
-    TODO: screenshots
+\begin{center}
+	 	   \includegraphics[scale=0.5]{img/github_desktop/commit.png}
+\end{center}
 \end{frame}
 
 \begin{frame}{Visualiser l'historique}
-    TODO: screenshots
+	 	   \includegraphics[scale=0.22]{img/github_desktop/historique.png}
 \end{frame}
 
 \begin{frame}{Récupérer un fichier d'un commit passé}
-    TODO: screenshots
+    TODO: screenshots - on va êtres forcés de faire ça sur Github...
 \end{frame}
 
 \begin{frame}{Astuce: ignorer des fichiers}
@@ -239,20 +264,51 @@ Aujourd'hui: aussi des interfaces graphiques, dont GitHub Desktop.
     fichiers temporaires\dots) Cachez-les !
 
     NB: Cela crée un fichier \texttt{.gitignore}: celui-là, on le versionne.
-
-    TODO: screenshots
+	\begin{center}
+	 	   \includegraphics[scale=0.35]{img/github_desktop/ignore.png}
+	\end{center}
 \end{frame}
 
 \begin{frame}{Push: envoyer des commits sur GitHub}
-    TODO: screenshots
+	\begin{center}
+	 	   \includegraphics[scale=0.35]{img/github_desktop/push.png}\\
+	 	   \includegraphics[scale=0.35]{img/github_desktop/push_2.png}
+	\end{center}
 \end{frame}
 
 \begin{frame}{Pull: récupérer des commits qui sont sur GitHub}
-    TODO: screenshots
+    
+	\begin{center}
+	 	   \includegraphics[scale=0.35]{img/github_desktop/pull.png}\\
+	 	   \includegraphics[scale=0.35]{img/github_desktop/pull_2.png}
+	\end{center}
 \end{frame}
 
 \begin{frame}{Merge non-automatique: quand il y a des conflits}
-    TODO: screenshots
+    Message d'erreur:\\
+	 	   \includegraphics[scale=0.5]{img/github_desktop/conflit_1.png}
+\end{frame}
+
+\begin{frame}{Merge non-automatique: quand il y a des conflits}
+    Trouver le(s) fichier(s) en conflit:\\
+    \begin{center}
+	 	   \includegraphics[scale=0.4]{img/github_desktop/conflit_2.png}
+    \end{center}
+\end{frame}
+
+\begin{frame}{Merge non-automatique: quand il y a des conflits}
+    Trouver le(s) endroit(s) en conflit:\\
+    \begin{center}
+	 	   \includegraphics[scale=0.4]{img/github_desktop/conflit_3.png}
+    \end{center}
+\end{frame}
+
+\begin{frame}{Merge non-automatique: quand il y a des conflits}
+    Choisir la version que l'on veut garder et commit:\\
+    \begin{center}
+	 	   \includegraphics[scale=0.4]{img/github_desktop/conflit_4.png}\\
+	 	   \includegraphics[scale=0.2]{img/github_desktop/conflit_5.png}
+    \end{center}
 \end{frame}
 
 \begin{frame}{Astuce: de l'aide !}
