@@ -1,3 +1,7 @@
+
+*/build_latex/*
+!*/build_latex/main.pdf
+
 ### LaTeX ###
 ## Core latex/pdflatex auxiliary files:
 *.aux

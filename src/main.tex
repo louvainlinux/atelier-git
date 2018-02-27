@@ -12,19 +12,6 @@
 
 \usepackage{comment}
 
-\newcommand{\fullslideimage}[1]{%
-\begin{frame}[plain]
-\begin{tikzpicture}[remember picture,overlay]
-    \node[at=(current page.center)] {
-        \includegraphics[width=\paperwidth]{#1}
-    };
-\end{tikzpicture}
-\end{frame}}
-
-% Configuration
-\definecolor{ligthYellow}{RGB}{255,255,229}
-
-% Theme https://github.com/matze/mtheme
 \usetheme[progressbar=frametitle]{metropolis}
 
 \usepackage[french]{babel}
@@ -55,7 +42,7 @@ Prenez un peu d'avance, installez-le:
     \item Sur les ordinateur Windows UCL: suivez les instructions à l'addresse \url{https://louvainlinux.org/git-windows-ucl}.
     \item Ou installez GitHub Desktop sur votre ordinateur :
     \begin{itemize}
-        \item \textbf{Ubuntu} : \url{github.com/shiftkey/desktop/releases}
+        \item \textbf{Ubuntu} : {\footnotesize{\url{https://github.com/shiftkey/desktop/releases}}}
         \item \textbf{Windows ou OS X} : \url{https://desktop.github.com}
     \end{itemize}
 \end{itemize}
@@ -140,13 +127,14 @@ Aujourd'hui: aussi des interfaces graphiques, dont GitHub Desktop.
 
 \begin{frame}{Concepts}
     \begin{itemize}
-        \item Espace de travail: les fichiers, répertoires... dans lesquels on
+        \item \textbf{Espace de travail:}
+            les fichiers, répertoires... dans lesquels on
             travaille. Ils n'ont rien de spécial par rapport à d'autres sur
             l'ordinateur.
-        \item Dépôt: espace de travail + historique, sur un ordinateur.
-        \item Commit: "version", est le successeur d'une autre commit.
-        \item Historique: la "chaine" de tous les commits, du plus anciens.
-        \item Dépôt distant: un dépot qui se trouve chez GitHub.
+        \item \textbf{Dépôt:} espace de travail + historique, sur un ordinateur.
+        \item \textbf{Commit:} "version", est le successeur d'une autre commit.
+        \item \textbf{Historique:} la "chaine" de tous les commits, du plus anciens.
+        \item \textbf{Dépôt distant:} un dépot qui se trouve chez GitHub.
     \end{itemize}
 \end{frame}
 
@@ -161,19 +149,19 @@ Aujourd'hui: aussi des interfaces graphiques, dont GitHub Desktop.
 
 \begin{frame}{Actions}
     \begin{itemize}
-        \item Créer un dépot sur GitHub.
-        \item Cloner (faire une copie d') un dépot de GitHub sur son PC.
-        \item Modifier/créer des fichiers (pas avec Git !).
-        \item Ajouter un fichier modifié: il sera pris en compte dans le
+        \item \textbf{Créer} un dépot sur GitHub.
+        \item \textbf{Cloner} (faire une copie d') un dépot de GitHub sur son PC.
+        \item \textbf{Modifier/créer} des fichiers (pas avec Git !).
+        \item \textbf{Ajouter} un fichier modifié: il sera pris en compte dans le
             prochain commit.
-        \item Faire un commit: créer une nouvelle version, qui contient les
+        \item \textbf{Faire un commit}: créer une nouvelle version, qui contient les
             fichiers ajoutés. On y ajoute un commentaire (qui décrit les
             changements).
-        \item Consulter un historique.
-        \item Push: envoyer ses nouveaux commits sur GitHub.
-        \item Pull: récupérer des changements de GitHub (qui ont été envoyés
+        \item \textbf{Consulter} un historique.
+        \item \textbf{Push}: envoyer ses nouveaux commits sur GitHub.
+        \item \textbf{Pull}: récupérer des changements de GitHub (qui ont été envoyés
             par quelqu'un d'autre).
-        \item Merge: quand on Pull et qu'on a aussi des nouveaux commits sur
+        \item \textbf{Merge}: quand on Pull et qu'on a aussi des nouveaux commits sur
             son PC. Git essaye de fusionner automatiquement; s'il ne sais pas
             le faire, il demande.
     \end{itemize}
@@ -187,61 +175,50 @@ Aujourd'hui: aussi des interfaces graphiques, dont GitHub Desktop.
 \section{Utilisation: en pratique}
 
 \begin{frame}{Créer un dépot sur GitHub}
-    \includegraphics[scale=0.35]{img/github_desktop/new_repo.png}
-\end{frame}
-
-\begin{frame}{Forker un dépot sur GitHub}
-    \includegraphics[scale=0.30]{img/github_desktop/fork.png}
+    \includegraphics[width=.9\textwidth]{img/github_desktop/new_repo.png}
 \end{frame}
 
 \begin{frame}{Ajouter un collaborateur sur GitHub}
-    \includegraphics[scale=0.33]{img/github_desktop/colaborator.png}
+    \includegraphics[width=\textwidth]{img/github_desktop/colaborator.png}
 \end{frame}
 
 \begin{frame}{Cloner un dépot sur son PC}
     Deux étapes:
     \begin{enumerate}
-    \item Prendre l'url du dépôt sur Github
-    \item Donner l'url a Github desktop
+        \item Prendre l'url du dépôt sur Github
+        \item Donner l'url a Github desktop
     \end{enumerate}
-	\begin{columns}    
-    	\begin{column}{0.5\textwidth}
-    		\includegraphics[scale=0.35]{img/github_desktop/clone_repo.png}\\ $ $\\
-		\end{column}
-		\begin{column}{0.5\textwidth}
-    		\includegraphics[scale=0.3]{img/github_desktop/clone_repo_desktop_2.png}\\
-    		{\small Pour ouvrir cette fenêtre : \\File $\rightarrow$ Clone repository}
-		\end{column}
-	\end{columns}
-	\begin{center}
-		Ne pas effacer le \emph{".git"} !
-	\end{center}
+    \begin{columns}    
+        \begin{column}{0.5\textwidth}
+            \includegraphics[width=.9\textwidth]{img/github_desktop/clone_repo.png}\\ $ $\\
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \includegraphics[width=.9\textwidth]{img/github_desktop/clone_repo_desktop_2.png}\\
+            {\small Pour ouvrir cette fenêtre : \\File $\rightarrow$ Clone repository}
+        \end{column}
+    \end{columns}
+    \begin{center}
+        Ne pas effacer le \emph{".git"} !
+    \end{center}
 \end{frame}
 
 \begin{frame}{Ajouter des fichiers}
-	\begin{center}
-	    \includegraphics[scale=0.5]{img/github_desktop/add_files.png}
-	\end{center}
-\end{frame}
-
-\begin{frame}{Voir ce qui est ajouté}
-	\begin{center}
-	    \includegraphics[scale=0.5]{img/github_desktop/see_added.png}
-	\end{center}
+    \begin{center}
+        \includegraphics[width=\textwidth]{img/github_desktop/see_added.png}
+    \end{center}
 \end{frame}
 
 \begin{frame}{Remarque: fichier texte vs binaire}
     \begin{itemize}
         \item Fichiers texte: programme, \LaTeX\dots\\
-        \begin{center}
-		    \includegraphics[scale=0.3]{img/github_desktop/see_added.png}\\
-        \end{center}
+            \begin{center}
+                \includegraphics[width=.75\textwidth]{img/github_desktop/see_added.png}\\
+            \end{center}
         \item Fichiers binaires: le reste: Word, Writer, images, sons, PDF\dots\\
-        \begin{center}
-	 	   \includegraphics[scale=0.12]{img/github_desktop/binary_file.png}
-        \end{center}
+            \begin{center}
+                \includegraphics[width=.75\textwidth]{img/github_desktop/binary_file.png}
+            \end{center}
     \end{itemize}
-
 \end{frame}
 
 \begin{frame}{Créer un commit}
@@ -250,12 +227,12 @@ Aujourd'hui: aussi des interfaces graphiques, dont GitHub Desktop.
     \item Message de \texttt{commit}: décrit les changements effectués.
 \end{itemize}
 \begin{center}
-	 	   \includegraphics[scale=0.5]{img/github_desktop/commit.png}
+    \includegraphics[width=.5\textwidth]{img/github_desktop/commit.png}
 \end{center}
 \end{frame}
 
 \begin{frame}{Visualiser l'historique}
-	 	   \includegraphics[scale=0.22]{img/github_desktop/historique.png}
+    \includegraphics[width=.9\textwidth]{img/github_desktop/historique.png}
 \end{frame}
 
 \begin{frame}{Astuce: ignorer des fichiers}
@@ -263,53 +240,56 @@ Aujourd'hui: aussi des interfaces graphiques, dont GitHub Desktop.
     fichiers temporaires\dots) Cachez-les !
 
     NB: Cela crée un fichier \texttt{.gitignore}: celui-là, on le versionne.
-	\begin{center}
-	 	   \includegraphics[scale=0.35]{img/github_desktop/ignore.png}
-	\end{center}
+    \begin{center}
+        \includegraphics[width=.5\textwidth]{img/github_desktop/ignore.png}
+    \end{center}
 \end{frame}
 
 \begin{frame}{Push: envoyer des commits sur GitHub}
-	\begin{center}
-	 	   \includegraphics[scale=0.35]{img/github_desktop/push.png}\\
-	 	   \includegraphics[scale=0.35]{img/github_desktop/push_2.png}
-	\end{center}
+    \begin{center}
+        \includegraphics[width=\textwidth]{img/github_desktop/push_2.png}
+    \end{center}
 \end{frame}
 
 \begin{frame}{Pull: récupérer des commits qui sont sur GitHub}
-    
-	\begin{center}
-	 	   \includegraphics[scale=0.35]{img/github_desktop/pull.png}\\
-	 	   \includegraphics[scale=0.35]{img/github_desktop/pull_2.png}
-	\end{center}
-\end{frame}
-
-\begin{frame}{Merge non-automatique: quand il y a des conflits}
-    Message d'erreur:\\
-	 	   \includegraphics[scale=0.5]{img/github_desktop/conflit_1.png}
-\end{frame}
-
-\begin{frame}{Merge non-automatique: quand il y a des conflits}
-    Trouver le(s) fichier(s) en conflit:\\
     \begin{center}
-	 	   \includegraphics[scale=0.4]{img/github_desktop/conflit_2.png}
+        \includegraphics[width=\textwidth]{img/github_desktop/pull_2.png}
     \end{center}
 \end{frame}
 
 \begin{frame}{Merge non-automatique: quand il y a des conflits}
-    Trouver le(s) endroit(s) en conflit:\\
+    Message d'erreur:
     \begin{center}
-    Before:\\
-	 	   \includegraphics[scale=0.30]{img/github_desktop/merge_before.png}\\
-	After:\\
-	 	   \includegraphics[scale=0.35]{img/github_desktop/merge_after.png}
+        \includegraphics[width=.9\textwidth]{img/github_desktop/conflit_1.png}
+    \end{center}
+\end{frame}
+
+\begin{frame}{Merge non-automatique: quand il y a des conflits}
+    Trouver le(s) fichier(s) en conflit:
+    \begin{center}
+        \includegraphics[width=.27\textwidth]{img/github_desktop/conflit_2.png}
+    \end{center}
+\end{frame}
+
+\begin{frame}{Merge non-automatique: quand il y a des conflits}
+    Trouver le(s) endroit(s) en conflit:
+
+    Avant: 
+    \begin{center}
+        \includegraphics[width=\textwidth]{img/github_desktop/merge_before.png}
+    \end{center}
+
+    Après:
+    \begin{center}
+        \includegraphics[width=\textwidth]{img/github_desktop/merge_after.png}
     \end{center}
 \end{frame}
 
 \begin{frame}{Merge non-automatique: quand il y a des conflits}
     Choisir la version que l'on veut garder et commit:\\
     \begin{center}
-	 	   \includegraphics[scale=0.4]{img/github_desktop/conflit_4.png}\\
-	 	   \includegraphics[scale=0.2]{img/github_desktop/conflit_5.png}
+        \includegraphics[width=.3\textwidth]{img/github_desktop/conflit_4.png}\\
+        \includegraphics[width=.95\textwidth]{img/github_desktop/conflit_5.png}
     \end{center}
 \end{frame}
 
@@ -318,10 +298,10 @@ Aujourd'hui: aussi des interfaces graphiques, dont GitHub Desktop.
     
     \begin{center}
     	Github help:\\ \url{https://help.github.com/}
-	\end{center}
-	\begin{center}
-	    Github desktop help:\\ \url{https://help.github.com/desktop/}
-	\end{center}        
+    \end{center}
+    \begin{center}
+        Github desktop help:\\ \url{https://help.github.com/desktop/}
+    \end{center}
 \end{frame}
 
 
@@ -329,11 +309,13 @@ Aujourd'hui: aussi des interfaces graphiques, dont GitHub Desktop.
 
 \begin{frame}[label = {instal}]{Installer GitHub desktop}
 \begin{itemize}
-    \item Sur les ordinateur Windows UCL: suivez les instructions à l'addresse {\small\url{https://louvainlinux.org/git-windows-ucl}}.
+    \item Sur les ordinateur Windows UCL: installez
+            \url{https://desktop.github.com}
     \item Ou installez GitHub Desktop sur votre ordinateur :
     \begin{itemize}
-        \item \textbf{Ubuntu} : \url{https://github.com/shiftkey/desktop/releases}
-        \item \textbf{Windows ou OS X} : \url{https://desktop.github.com}
+        \item \textbf{Ubuntu} : {\footnotesize{\url{https://github.com/shiftkey/desktop/releases}}}
+        \item \textbf{Windows ou OS X} :
+            \url{https://desktop.github.com}
     \end{itemize}
 \end{itemize}
 \end{frame}
@@ -366,163 +348,182 @@ efficacement :
 \begin{frame}{Exercice 1 : partie 1}
 Exercice à faire par \textbf{groupe de 2 ou 3}:
     \begin{itemize}
-    \item[•] Créer un compte sur \href{https://github.com}{GitHub}.
-    \item[•] Créer un repertoire nomée \textit{blague} sur votre compte GitHub. (une seul personne)
-    \item[•] Mettre en collaboration les autres personnes du groupe sur le repertoir. 
-    \item[•] Installer GitHub Desktop, voir liens slide~\ref{instal}.
-    \item[•] Ouvrir GitHub Desktop et cloner le repertoir sur votre ordinateur.
+        \item Créez un compte sur \href{https://github.com}{GitHub}.
+        \item Créez un dépôt nomé \textit{blagues} sur votre compte GitHub. (une seul personne).
+        \item Mettez en collaboration les autres personnes du groupe sur le dépôt.
+        \item Installez GitHub Desktop, voir liens slide~\ref{instal}.
+        \item Ouvrez GitHub Desktop.
+        \item Clonez le dépôt sur votre ordinateur.
     \end{itemize}
 \end{frame}
 
 \begin{frame}{Exercice 1 : partie 2}
     \begin{itemize}
-    \item[•] Créer un fichier avec NotePad++ dans le repertoir Windows ou Ubuntu (sur l'ordinateur pas sur GitHub Desktop).
-    \item[•] Remplir le fichier avec des blagues. (\href{https://linuxfr.org/news/blagues-d-informaticiens}{Si vous n'avez pas d'idée cliquer ici})
-    \item[•] Sauver le fichier .txt --> \textbf{NE PAS OUBLIER !!!}
-    \item[•] Reprendre GitHub Desktop et faire le add du fichier et le commit.
-    \item[•] Faire push sur le repertoir GitHub en ligne.
+        \item Créez un fichier avec NotePad++ (ou un autre éditeur de texte)
+            dans le dépôt sur votre ordinateur (pas besoin d'utiliser
+            GitHub Desktop pour ça).
+        \item Remplissez le fichier avec des blagues.
+            (\href{https://linuxfr.org/news/blagues-d-informaticiens}{Si vous
+            n'avez pas d'idée cliquez ici})
+        \item Sauvez le fichier .txt $\rightarrow$ \textbf{NE PAS OUBLIER !!!}
+        \item Reprenez GitHub Desktop et ajouter le fichier.
+        \item Faites un commit.
+        \item Faites un push vers le dépôt GitHub en ligne.
     \end{itemize}
 \end{frame}
+
 \subsection{Exercice 2}
 \begin{frame}{Exercice 2 : partie seul}
     Partie à faire seul (chacun sur son ardinateur) :
     \begin{itemize}
-    \item[•] Ouvrire GitHub Desktop et cloner le repertoir précedemment créé si ce n'est déja fait.
-    \item[•] Ajouter une blague dans le fichiet .txt. (Toujours ne pas oublier de sauver le fichier)
-    \item[•] Suivre la slide suivante suivant le nombre de votre personne dans votre group.
+        \item Ouvrez GitHub Desktop et clonez le dépôt précedemment créé
+            si ce n'est déja fait.
+        \item Ajoutez une blague dans le fichiet .txt. Ne pas oublier de sauver
+            le fichier.
+        \item Ajoutez le fichier dans GitHub Desktop.
+        \item Faites un commit.
+        \item Suivez les slides suivants en fonction du nombre personnes dans
+            votre groupe.
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Exercice 2 : pour group de 2}
+\begin{frame}{Exercice 2 : pour groupe de 2}
     \begin{itemize}
-    \item[•] Une des deux personnes fait le add, commit et push. L'autre ne fait rien.
-    \item[•] Une fois que le push est fait l'autre personne fait le pull sur son ordinateur ( il faut parfois attendre quelque minutes).
-    \item[•] Resolvez le merge ensemble pour avoir les deux blagues.
-    \item[•] Faire le add, le commit et le push.
+        \item Une personne fait un push. L'autre personne ne fait rien.
+        \item L'autre personne fait le pull sur son ordinateur
+            (cliquer sur "push" si "pull" n'est pas affiché).
+             % TODO check "push" thing works?
+        \item Resolvez le conflit de merge ensemble pour avoir les deux blagues.
+        \item Une fois le merge terminé faire un push.
+        \item L'autre personne peut faire un pull pour récupérer la dernière blague.
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Exercice 2 : pour group de 3}
+\begin{frame}{Exercice 2 : pour groupe de 3}
     \begin{itemize}
-    \item[•] Une des 3 personnes fait le add, commit et push. Les autres ne font rien.
-    \item[•] Une fois que le push est fait une des 2 autres personnes fait le pull sur son ordinateur ( il faut parfois attendre quelque minutes).
-    \item[•] Resolvez le merge ensemble pour avoir les deux blagues.
-    \item[•] Faire le add, le commit et le push.
-    \item[•] La derniere personne fait le pull sur son ordinateur.
-    \item[•] Vous résolver ensemble le merge pour avoir toutes les blagues.
-    \item[•] Faire le add, le commit et le push.
+        \item Une personne fait un push. Les autres personnes ne font rien.
+        \item Une des 2 autres personnes fait le pull sur son ordinateur
+            (cliquer sur "push" si "pull" n'est pas affiché).
+        \item Resolvez le conflit de merge ensemble pour avoir les deux blagues.
+        \item Une fois le merge terminé faire un push.
+        \item La derniere personne fait le pull sur son ordinateur.
+        \item Resolvez le conflit de merge ensemble pour avoir toutes les blagues.
+        \item Les autres peuvent faire un pull pour récupérer toutes les blagues.
     \end{itemize}
 \end{frame}
+
 \subsection{Exercice 3}
 \begin{frame}{Exercice 3}
     Exercice à faire par \textbf{groupe de 2 ou 3}:
     \begin{itemize}
-    \item[•] Créer un fichier avec Word (.doc ) dans le repertoir \textit{"blague"} précemment crée sur Windows ou Ubuntu.
-    \item[•] Remplir le fichier avec des blagues.
-    \item[•] Sauver le fichier .doc (Ne pas oublier de sauver le fichier)
-    \item[•] Reprendre GitHub Desktop et faire le add du fichier et le commit.
-    \item[•] Faire push sur le repertoir GitHub en ligne.
+        \item Créer un fichier avec Word (.doc ) dans le dépôt \textit{"blague"} précemment créé sur votre ordinateur.
+        \item Remplir le fichier avec des blagues.
+        \item Sauver le fichier .doc (Ne pas oublier de sauver le fichier)
+        \item Reprendre GitHub Desktop et faire le add du fichier et le commit.
+        \item Faire push sur le dépôt GitHub en ligne.
     \end{itemize}
 \end{frame}
 
 \begin{frame}{Exercice 3 : partie seul}
-    Partie a faire seul sur son ordinateur :
+    Pour chacun:
     \begin{itemize}
-    \item[•] Faire le pull du répertoire sur votre ordinateur.
-    \item[•] Ajouter une blague au fichier .doc.
-    \item[•] Sauver le fichier .doc (Ne pas oublier de sauver le fichier)
+    \item Faire le pull du dépôt sur votre ordinateur.
+    \item Ajouter une blague au fichier .doc.
+    \item Sauver le fichier .doc (Ne pas oublier de sauver le fichier).
     \end{itemize}
 \end{frame}
 
 \begin{frame}{Exercice 3 : partie fun}
     \begin{itemize}
-    \item[•] Une des personnes fait le add, commit et push. Les autres ne font rien.
-    \item[•] Une fois que le push est fait une autre personne fait le pull sur son ordinateur (attendez quelque minutes si besoin).
-    \item[•] Enjoy :). 
-    \item[•] N'hésiter pas a demmander pour savoir ce qu'il c'est passé. \#ViveLaTeX!
+        \item Faire les étapes du deuxième slide de l'exercice deux.
+        \item Enjoy :). 
+        \item N'hésitez pas a demmander pour savoir ce qu'il c'est passé. \#ViveLaTeX!
     \end{itemize}
     \begin{figure}
     \centering
-    \includegraphics[scale=0.5]{img/image_exercices/explosion.jpeg}
+    \includegraphics[width=.7\textwidth]{img/image_exercices/explosion.jpeg}
     \end{figure}
 \end{frame}
+
 \subsection{Solutions exercice 1}
-\begin{frame}{Exercice 1 : solutions}
-	\centering
-    \includegraphics[scale=0.16]{img/image_exercices/repo_creat.png}
+\begin{frame}{Exercice 1: solutions}
+    \centering
+    \includegraphics[width=\textwidth]{img/image_exercices/repo_creat.png}
 \end{frame}
 
-\begin{frame}{Exercice 1 : solutions}
-	\centering
-    \includegraphics[scale=0.16]{img/image_exercices/repo_config.png}
+\begin{frame}{Exercice 1: solutions}
+    \centering
+    \includegraphics[width=\textwidth]{img/image_exercices/repo_config.png}
 \end{frame}
 
-\begin{frame}{Exercice 1 : solutions}
-	\centering
-    \includegraphics[scale=0.16]{img/image_exercices/add_collab.png}
+\begin{frame}{Exercice 1: solutions}
+    \centering
+    \includegraphics[width=\textwidth]{img/image_exercices/add_collab.png}
 \end{frame}
 
-\begin{frame}{Exercice 1 : solutions}
-	\centering
-    \includegraphics[scale=0.16]{img/image_exercices/accept_invitation.png}
+\begin{frame}{Exercice 1: solutions}
+    \centering
+    \includegraphics[width=\textwidth]{img/image_exercices/accept_invitation.png}
 \end{frame}
 
-\begin{frame}{Exercice 1 : solutions}
-	\centering
-    \includegraphics[scale=0.16]{img/image_exercices/clonning_repo.png}
+\begin{frame}{Exercice 1: solutions}
+    \centering
+    \includegraphics[width=\textwidth]{img/image_exercices/clonning_repo.png}
 \end{frame}
 
-\begin{frame}{Exercice 1 : solutions}
-	\centering
-    \includegraphics[scale=0.16]{img/image_exercices/getting_url.png}
+\begin{frame}{Exercice 1: solutions}
+    \centering
+    \includegraphics[width=\textwidth]{img/image_exercices/getting_url.png}
 \end{frame}
 
-\begin{frame}{Exercice 1 : solutions}
-	\centering
-    \includegraphics[scale=0.16]{img/image_exercices/cloning_with_url.png}
+\begin{frame}{Exercice 1: solutions}
+    \centering
+    \includegraphics[width=\textwidth]{img/image_exercices/cloning_with_url.png}
 \end{frame}
 
-\begin{frame}{Exercice 1 : solutions}
-	\centering
-    \includegraphics[scale=0.16]{img/image_exercices/add+commit+push_1.png}
+\begin{frame}{Exercice 1: solutions}
+    \centering
+    \includegraphics[width=\textwidth]{img/image_exercices/add+commit+push_1.png}
 \end{frame}
 
 \subsection{Solutions exercice 2}
 
 \begin{frame}{Exercice 2 : solutions}
-	\centering
-    \includegraphics[scale=0.16]{img/image_exercices/clonning_repo.png}
+    \centering
+    \includegraphics[width=\textwidth]{img/image_exercices/clonning_repo.png}
 \end{frame}
 
-\begin{frame}{Exercice 2 : solutions}
+\begin{frame}{Exercice 2: solutions}
 	\centering
-    \includegraphics[scale=0.16]{img/image_exercices/get_url_all_time.png}
+    \includegraphics[width=\textwidth]{img/image_exercices/get_url_all_time.png}
 \end{frame}
 
-\begin{frame}{Exercice 2 : solutions}
-	\centering
-    \includegraphics[scale=0.16]{img/image_exercices/cloning_with_url.png}
+\begin{frame}{Exercice 2: solutions}
+    \centering
+    \includegraphics[width=\textwidth]{img/image_exercices/cloning_with_url.png}
 \end{frame}
 
-\begin{frame}{Exercice 2 : solutions}
-	\centering
-    \includegraphics[scale=0.16]{img/image_exercices/fetch_for_merge.png}
+\begin{frame}{Exercice 2: solutions}
+    \centering
+    \includegraphics[width=\textwidth]{img/image_exercices/fetch_for_merge.png}
 \end{frame}
 
-\begin{frame}{Exercice 2 : solutions}
-	\centering
-    \includegraphics[scale=0.16]{img/image_exercices/conflic_to_resolve.png}
+\begin{frame}{Exercice 2: solutions}
+    \centering
+    \includegraphics[width=\textwidth]{img/image_exercices/conflic_to_resolve.png}
 \end{frame}
 
-\begin{frame}{Exercice 2 : solutions}
+\begin{frame}{Exercice 2: solutions}
 	\centering
-    \includegraphics[scale=0.16]{img/image_exercices/conflic_resolv.png}
+    \includegraphics[width=\textwidth]{img/image_exercices/conflic_resolv.png}
 \end{frame}
 
 \subsection{Solutions exercice 3}
 
-\begin{frame}{Exercice 3 : solutions}
-	Cette solution est preque identique à la solution de l'exercice 1 sauf qu'il est impossible de faire le merge.
+\begin{frame}{Exercice 3: solutions}
+    Cette solution est preque identique à la solution de l'exercice 1 sauf
+    qu'il est impossible de faire le merge avec GitHub Desktop. Il faut
+    utiliser une autre interface à git (voir plus loin dans les slides).
 \end{frame}
 
 \section{Fonctionnalités plus avancées}
@@ -581,10 +582,6 @@ Exercice à faire par \textbf{groupe de 2 ou 3}:
     \end{center}
 \end{frame}
 
-\begin{frame}{Créer une branche: en pratique}
-    TODO: screenshots
-\end{frame}
-
 \begin{frame}{Changer de branche}
     La branche courante est celle qui suit les nouveaux commits.
     \begin{columns}
@@ -612,21 +609,15 @@ Exercice à faire par \textbf{groupe de 2 ou 3}:
     \end{center}
 \end{frame}
 
-\begin{frame}{Résultat: embranchement dans l'historique}
-    TODO: screenshots
-\end{frame}
-
 \begin{frame}{Fusionner des modifications}
-\begin{center}
-    \includegraphics[width=0.9\textwidth,trim=0 0 0 40, clip]{img/basic-merging-1.png}
-    \includegraphics[width=\textwidth,trim=0 0 0 60, clip]{img/basic-merging-2.png}
-\end{center}
+    \begin{center}
+        \includegraphics[width=0.9\textwidth,trim=0 0 0 40, clip]{img/basic-merging-1.png}
+        \includegraphics[width=\textwidth,trim=0 0 0 60, clip]{img/basic-merging-2.png}
+    \end{center}
 \end{frame}
 
 \begin{frame}{Fusionner des modifications: en pratique}
-    TODO: screenshots
-
-    Et parfois il faut résoudre des conflits\dots
+    Parfois il faut résoudre des conflits\dots
 \end{frame}
 
 
@@ -641,10 +632,14 @@ Exercice à faire par \textbf{groupe de 2 ou 3}:
 \end{frame}
 
 \begin{frame}{Fork -- Pull Request: Méthode de travail}
-    Ajouter un "upstream". TODO: ref vers une explication / voir comment ça marche ave github desktop
+    Voir \url{https://help.github.com/articles/fork-a-repo/}.
     \begin{center}
         \includegraphics[width=\textwidth]{img/github-workflow.jpg}
     \end{center}
+\end{frame}
+
+\begin{frame}{Forker un dépot sur GitHub}
+    \includegraphics[scale=0.30]{img/github_desktop/fork.png}
 \end{frame}
 
 \subsection{Divers}
