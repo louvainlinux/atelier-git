@@ -3,7 +3,7 @@
 
 Conférence `git` du [Louvain-li-Nux](http://louvainlinux.org).
 
-[Télécharger les slides.](https://raw.githubusercontent.com/louvainlinux/atelier-git/master/src/main.pdf)
+Plus d'informations: <https://louvainlinux.org/activites/atelier-git>
 
 ## License
 
