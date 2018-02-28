@@ -348,21 +348,32 @@ efficacement :
 \subsection{Exercice 1}
 \begin{frame}{Exercice 1 : partie 1}
 Exercice à faire par \textbf{groupe de 2 ou 3}:
-    \begin{itemize}
-        \item Créez un compte sur \href{https://github.com}{GitHub}.
-        \item Créez un dépôt nomé \textit{blagues} sur votre compte GitHub. (une seul personne).
-        \item Mettez en collaboration les autres personnes du groupe sur le dépôt.
-        \item Installez GitHub Desktop, voir liens slide~\ref{instal}.
-        \item Ouvrez GitHub Desktop.
-        \item Clonez le dépôt sur votre ordinateur.
-    \end{itemize}
+
+Pour tout le monde:
+\begin{itemize}
+    \item Créez un compte sur \href{https://github.com}{GitHub}.
+\end{itemize}
+Une personne du groupe:
+\begin{itemize}
+    \item Créez un dépôt nomé \textit{blagues} sur votre compte GitHub. Cocher la case "Initialize this repository...".
+    \item Mettez en collaboration les autres personnes du groupe sur le dépôt.
+        Les autres reçoivent une invitation par mail, ils doivent l'accepter.\footnote{Si vous arrivez sur une page 404, connectez-vous à github et ré-essayez.}
+\end{itemize}
+Pour tout le monde:
+\begin{itemize}
+    \item Installez GitHub Desktop, voir liens slide~\ref{instal}.
+    \item Ouvrez GitHub Desktop.
+    \item Clonez le dépôt sur votre ordinateur.
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Exercice 1 : partie 2}
-    \begin{itemize}
+    Une personne:
+    \begin{enumerate}
         \item Créez un fichier avec NotePad++ (ou un autre éditeur de texte)
             dans le dépôt sur votre ordinateur (pas besoin d'utiliser
-            GitHub Desktop pour ça).
+            GitHub Desktop pour ça). Emplacement par défaut sur les PC UCL:
+            Z:$\backslash$GitHub$\backslash$blagues.
         \item Remplissez le fichier avec des blagues.
             (\href{https://linuxfr.org/news/blagues-d-informaticiens}{Si vous
             n'avez pas d'idée cliquez ici})
@@ -370,12 +381,20 @@ Exercice à faire par \textbf{groupe de 2 ou 3}:
         \item Reprenez GitHub Desktop et ajouter le fichier.
         \item Faites un commit.
         \item Faites un push vers le dépôt GitHub en ligne.
+    \end{enumerate}
+    Ensuite, les autres, chacun à son tour:
+    \begin{itemize}
+        \item Fait un pull
+        \item Regarde l'historique pour vérifier que les changements sont là.
+        \item Ajoute des blagues dans le fichier
+        \item Fait les étapes 3 à 6 ci-dessus.
     \end{itemize}
+    N'hésitez pas à répéter cela plusieurs fois!
 \end{frame}
 
 \subsection{Exercice 2}
 \begin{frame}{Exercice 2 : partie seul}
-    Partie à faire seul (chacun sur son ardinateur) :
+    Partie à faire seul (chacun sur son ordinateur, simultanément):
     \begin{itemize}
         \item Ouvrez GitHub Desktop et clonez le dépôt précedemment créé
             si ce n'est déja fait.
@@ -383,6 +402,7 @@ Exercice à faire par \textbf{groupe de 2 ou 3}:
             le fichier.
         \item Ajoutez le fichier dans GitHub Desktop.
         \item Faites un commit.
+        \item Observez et comparez les historiques de chacun.
         \item Suivez les slides suivants en fonction du nombre personnes dans
             votre groupe.
     \end{itemize}
@@ -392,11 +412,12 @@ Exercice à faire par \textbf{groupe de 2 ou 3}:
     \begin{itemize}
         \item Une personne fait un push. L'autre personne ne fait rien.
         \item L'autre personne fait le pull sur son ordinateur
-            (cliquer sur "push" si "pull" n'est pas affiché).
+            (cliquer sur "push" si "pull" n'est pas affiché, et cliquez "close" sur le message d'erreur qui s'affiche).
              % TODO check "push" thing works?
-        \item Resolvez le conflit de merge ensemble pour avoir les deux blagues.
-        \item Une fois le merge terminé faire un push.
+        \item Resolvez le conflit de merge ensemble pour avoir les deux blagues (il faut éditer le fichier).
+        \item Une fois le merge terminé faire un commit puis un push.
         \item L'autre personne peut faire un pull pour récupérer la dernière blague.
+        \item Comparez à nouveau vos historiques.
     \end{itemize}
 \end{frame}
 
@@ -404,22 +425,25 @@ Exercice à faire par \textbf{groupe de 2 ou 3}:
     \begin{itemize}
         \item Une personne fait un push. Les autres personnes ne font rien.
         \item Une des 2 autres personnes fait le pull sur son ordinateur
-            (cliquer sur "push" si "pull" n'est pas affiché).
-        \item Resolvez le conflit de merge ensemble pour avoir les deux blagues.
-        \item Une fois le merge terminé faire un push.
+            (cliquer sur "push" si "pull" n'est pas affiché, et cliquez "close" sur le message d'erreur qui s'affiche).
+        \item Resolvez le conflit de merge ensemble pour avoir les deux blagues (il faut éditer le fichier).
+        \item Une fois le merge terminé faire un commit et un push.
         \item La derniere personne fait le pull sur son ordinateur.
         \item Resolvez le conflit de merge ensemble pour avoir toutes les blagues.
         \item Les autres peuvent faire un pull pour récupérer toutes les blagues.
+        \item Comparez à nouveau vos historiques.
     \end{itemize}
 \end{frame}
 
 \subsection{Exercice 3}
 \begin{frame}{Exercice 3}
     Exercice à faire par \textbf{groupe de 2 ou 3}:
+
+    Pour une personne:
     \begin{itemize}
-        \item Créer un fichier avec Word (.doc ) dans le dépôt \textit{"blague"} précemment créé sur votre ordinateur.
+        \item Créer un fichier avec Word (.docx ) dans le dépôt \textit{"blagues"} précemment créé sur votre ordinateur.
         \item Remplir le fichier avec des blagues.
-        \item Sauver le fichier .doc (Ne pas oublier de sauver le fichier)
+        \item Sauver le fichier .docx.
         \item Reprendre GitHub Desktop et faire le add du fichier et le commit.
         \item Faire push sur le dépôt GitHub en ligne.
     \end{itemize}
@@ -429,8 +453,9 @@ Exercice à faire par \textbf{groupe de 2 ou 3}:
     Pour chacun:
     \begin{itemize}
     \item Faire le pull du dépôt sur votre ordinateur.
-    \item Ajouter une blague au fichier .doc.
-    \item Sauver le fichier .doc (Ne pas oublier de sauver le fichier).
+    \item Ajouter une blague au fichier .docx.
+    \item Sauver le fichier .docx
+    \item Faites un commit.
     \end{itemize}
 \end{frame}
 
@@ -517,6 +542,16 @@ Exercice à faire par \textbf{groupe de 2 ou 3}:
 \begin{frame}{Exercice 2: solutions}
 	\centering
     \includegraphics[width=\textwidth]{img/image_exercices/conflic_resolv.png}
+\end{frame}
+
+\begin{frame}{Exercice 2: solutions}
+    Après le merge, l'historique observé dans GitHub Desktop peut ne pas être
+    le même.
+    Cela est dû au fait que GitHub Desktop n'affiche pas l'entièreté de
+    l'historique, seulement les commits qu'il juge pertinents.
+
+    Pour voir tout l'historique, aller sur le site \url{github.com} ou bien
+    utiliser une autre interface de git (ex.: commande \texttt{git log}).
 \end{frame}
 
 \subsection{Solutions exercice 3}
