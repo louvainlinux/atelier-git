@@ -14,6 +14,9 @@
 
 \usetheme[progressbar=frametitle]{metropolis}
 
+\definecolor{links}{HTML}{2A1B81}
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+
 \usepackage[french]{babel}
 
 % Title
@@ -75,7 +78,7 @@ Comment gérez-vous actuellement un projet ?
 \begin{itemize}
     \item L'envoyer à travers un message sur Facebook, ... (\textbf{Très mauvaise idée})
     \item L'envoyer par mail (\textbf{Un peu moins})
-    \item Utiliser une Dropbox, Google Drive, ... (\textbf{Déjà mieux mais toujours risqué ou manque de fonctionalités})
+    \item Utiliser une Dropbox, Google Drive, ... (\textbf{Déjà mieux mais toujours risqué ou manque de fonctionnalités})
 \end{itemize}
 
 Solution : Utiliser un \textbf{système de gestion de version décentralisé}
@@ -94,7 +97,7 @@ Solution : Utiliser un \textbf{système de gestion de version décentralisé}
                 \item peut récupérer sur son PC les copies et historiques disponibles en ligne,
                 \item peut fusionner différentes copies (semi-)automatiquement.
             \end{itemize}
-        \item \textbf{Projet} n'importe quel répertoire (\og dossier\fg). Donc
+        \item \textbf{Projet} n'importe quel répertoire (\og dossier\fg) sur votre ordinateur. Donc
             n'importe quoi : Bureautique, \LaTeX, code, images, musique\dots
     \end{itemize}
 \end{frame}
@@ -130,11 +133,11 @@ Aujourd'hui: aussi des interfaces graphiques, dont GitHub Desktop.
     \begin{itemize}
         \item \textbf{Espace de travail:}
             les fichiers, répertoires... dans lesquels on
-            travaille. Ils n'ont rien de spécial par rapport à d'autres sur
-            l'ordinateur.
+            travaille. Ils n'ont rien de spécial par rapport à d'autres dossiers
+            sur l'ordinateur.
         \item \textbf{Dépôt:} espace de travail + historique, sur un ordinateur.
         \item \textbf{Commit:} "version", est le successeur d'une autre commit.
-        \item \textbf{Historique:} la "chaine" de tous les commits, du plus anciens.
+        \item \textbf{Historique:} la "chaîne" de tous les commits, du plus ancien au plus récent.
         \item \textbf{Dépôt distant:} un dépot qui se trouve chez GitHub.
     \end{itemize}
 \end{frame}
@@ -155,16 +158,16 @@ Aujourd'hui: aussi des interfaces graphiques, dont GitHub Desktop.
         \item \textbf{Modifier/créer} des fichiers (pas avec Git !).
         \item \textbf{Ajouter} un fichier modifié: il sera pris en compte dans le
             prochain commit.
-        \item \textbf{Faire un commit}: créer une nouvelle version, qui contient les
-            fichiers ajoutés. On y ajoute un commentaire (qui décrit les
+        \item \textbf{Faire un commit}: créer une nouvelle version, qui contient tous
+            les fichiers ajoutés. On y ajoute un commentaire (qui décrit les
             changements).
         \item \textbf{Consulter} un historique.
         \item \textbf{Push}: envoyer ses nouveaux commits sur GitHub.
-        \item \textbf{Pull}: récupérer des changements de GitHub (qui ont été envoyés
-            par quelqu'un d'autre).
+        \item \textbf{Pull}: récupérer des changements (qui ont été envoyés
+            par quelqu'un d'autre) depuis GitHub.
         \item \textbf{Merge}: quand on Pull et qu'on a aussi des nouveaux commits sur
-            son PC. Git essaye de fusionner automatiquement; s'il ne sais pas
-            le faire, il demande.
+            son PC. Git essaye de fusionner automatiquement; s'il ne sait pas
+            le faire, il demande à l'utilisateur.
     \end{itemize}
 \end{frame}
 
@@ -187,7 +190,7 @@ Aujourd'hui: aussi des interfaces graphiques, dont GitHub Desktop.
     Deux étapes:
     \begin{enumerate}
         \item Prendre l'url du dépôt sur Github
-        \item Donner l'url a Github desktop
+        \item Donner l'url à Github desktop
     \end{enumerate}
     \begin{columns}    
         \begin{column}{0.5\textwidth}
@@ -222,6 +225,12 @@ Aujourd'hui: aussi des interfaces graphiques, dont GitHub Desktop.
     \end{itemize}
 \end{frame}
 
+\begin{frame}{Créer un dépôt local}
+    \begin{center}
+        \includegraphics[scale=0.45]{img/new_repo.png}
+    \end{center}
+\end{frame}
+
 \begin{frame}{Créer un commit}
 \begin{itemize}
     \item Créer un \texttt{commit} sur base des fichiers ajoutés.
@@ -237,8 +246,8 @@ Aujourd'hui: aussi des interfaces graphiques, dont GitHub Desktop.
 \end{frame}
 
 \begin{frame}{Astuce: ignorer des fichiers}
-    Des fichiers qu'on ne veut jamais dans Git (résultats de compilation,
-    fichiers temporaires\dots) Cachez-les !
+    Des fichiers que vous ne voulez jamais dans Git (résultats de compilation,
+    fichiers temporaires\dots) ? Cachez-les !
 
     NB: Cela crée un fichier \texttt{.gitignore}: celui-là, on le versionne.
     \begin{center}
@@ -273,7 +282,7 @@ Aujourd'hui: aussi des interfaces graphiques, dont GitHub Desktop.
 \end{frame}
 
 \begin{frame}{Merge non-automatique: quand il y a des conflits}
-    Trouver le(s) endroit(s) en conflit:
+    Trouver le(s) endroit(s) en conflit dans le fichier (reconnaissables par des balises) :
 
     Avant: 
     \begin{center}
@@ -348,34 +357,55 @@ efficacement :
 \subsection{Exercice 1}
 \begin{frame}{Exercice 1 : partie 1}
 Exercice à faire par \textbf{groupe de 2 ou 3}:
-    \begin{itemize}
-        \item Créez un compte sur \href{https://github.com}{GitHub}.
-        \item Créez un dépôt nomé \textit{blagues} sur votre compte GitHub. (une seul personne).
-        \item Mettez en collaboration les autres personnes du groupe sur le dépôt.
-        \item Installez GitHub Desktop, voir liens slide~\ref{instal}.
-        \item Ouvrez GitHub Desktop.
-        \item Clonez le dépôt sur votre ordinateur.
-    \end{itemize}
+
+Pour tout le monde:
+\begin{itemize}
+    \item Créez un compte sur \href{https://github.com}{GitHub}.
+\end{itemize}
+Une personne du groupe:
+\begin{itemize}
+    \item Créez un dépôt nommé \textit{blagues} sur votre compte GitHub. Cocher la case "Initialize this repository...".
+    \item Ajoutez les autres en collaborateurs sur le dépôt. Ils reçoivent
+        une invitation par mail, ils doivent l'accepter.\footnote{Si vous arrivez sur une page 404, connectez-vous à github et ré-essayez.}
+\end{itemize}
+Pour tout le monde:
+\begin{itemize}
+    \item Installez GitHub Desktop, (voir liens slide~\ref{instal}), puis ouvrez-le.
+    \item Clonez le dépôt sur votre ordinateur.
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Exercice 1 : partie 2}
-    \begin{itemize}
-        \item Créez un fichier avec NotePad++ (ou un autre éditeur de texte)
+    Une personne:
+    \begin{enumerate}
+        \item Créez un fichier avec NotePad++ (ou autre)
             dans le dépôt sur votre ordinateur (pas besoin d'utiliser
-            GitHub Desktop pour ça).
+            GitHub Desktop pour ça). Emplacement par défaut sur les PCs UCL:
+            Z:$\backslash$GitHub$\backslash$blagues.
         \item Remplissez le fichier avec des blagues.
             (\href{https://linuxfr.org/news/blagues-d-informaticiens}{Si vous
-            n'avez pas d'idée cliquez ici})
+            n'avez pas d'idées, cliquez ici})
         \item Sauvez le fichier .txt $\rightarrow$ \textbf{NE PAS OUBLIER !!!}
-        \item Reprenez GitHub Desktop et ajouter le fichier.
+        \item Reprenez GitHub Desktop et ajoutez le fichier.
         \item Faites un commit.
         \item Faites un push vers le dépôt GitHub en ligne.
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Exercice 1 : partie 2}
+    Ensuite, les autres, chacun à son tour:
+    \begin{itemize}
+        \item Faites un pull
+        \item Regardez l'historique pour vérifier que les changements sont là.
+        \item Ajoutez des blagues dans le fichier.
+        \item Refaites les étapes 3 à 6 ci-dessus.
     \end{itemize}
+    N'hésitez pas à répéter cela plusieurs fois, pour être sûrs de bien comprendre !
 \end{frame}
 
 \subsection{Exercice 2}
-\begin{frame}{Exercice 2 : partie seul}
-    Partie à faire seul (chacun sur son ardinateur) :
+\begin{frame}{Exercice 2 : partie individuelle}
+    Partie à faire individuellement (chacun sur son ordinateur, simultanément):
     \begin{itemize}
         \item Ouvrez GitHub Desktop et clonez le dépôt précedemment créé
             si ce n'est déja fait.
@@ -383,6 +413,7 @@ Exercice à faire par \textbf{groupe de 2 ou 3}:
             le fichier.
         \item Ajoutez le fichier dans GitHub Desktop.
         \item Faites un commit.
+        \item Observez et comparez les historiques de chacun.
         \item Suivez les slides suivants en fonction du nombre personnes dans
             votre groupe.
     \end{itemize}
@@ -392,11 +423,12 @@ Exercice à faire par \textbf{groupe de 2 ou 3}:
     \begin{itemize}
         \item Une personne fait un push. L'autre personne ne fait rien.
         \item L'autre personne fait le pull sur son ordinateur
-            (cliquer sur "push" si "pull" n'est pas affiché).
+            (cliquez sur "push" si "pull" n'est pas affiché, et cliquez "close" sur le message d'erreur qui s'affiche).
              % TODO check "push" thing works?
-        \item Resolvez le conflit de merge ensemble pour avoir les deux blagues.
-        \item Une fois le merge terminé faire un push.
+        \item Résolvez le conflit de merge ensemble pour avoir les deux blagues (il faut éditer le fichier en qestion).
+        \item Une fois le merge terminé, faites un commit, puis un push.
         \item L'autre personne peut faire un pull pour récupérer la dernière blague.
+        \item Comparez à nouveau vos historiques.
     \end{itemize}
 \end{frame}
 
@@ -404,24 +436,27 @@ Exercice à faire par \textbf{groupe de 2 ou 3}:
     \begin{itemize}
         \item Une personne fait un push. Les autres personnes ne font rien.
         \item Une des 2 autres personnes fait le pull sur son ordinateur
-            (cliquer sur "push" si "pull" n'est pas affiché).
-        \item Resolvez le conflit de merge ensemble pour avoir les deux blagues.
-        \item Une fois le merge terminé faire un push.
-        \item La derniere personne fait le pull sur son ordinateur.
-        \item Resolvez le conflit de merge ensemble pour avoir toutes les blagues.
+            (cliquez sur "push" si "pull" n'est pas affiché, et cliquez "close" sur le message d'erreur qui s'affiche).
+        \item Résolvez le conflit de merge ensemble pour avoir les deux blagues (il faut éditer le fichier).
+        \item Une fois le merge terminé, faites un commit et un push.
+        \item La dernière personne fait le pull sur son ordinateur.
+        \item Résolvez le conflit de merge ensemble pour avoir toutes les blagues.
         \item Les autres peuvent faire un pull pour récupérer toutes les blagues.
+        \item Comparez à nouveau vos historiques.
     \end{itemize}
 \end{frame}
 
 \subsection{Exercice 3}
 \begin{frame}{Exercice 3}
     Exercice à faire par \textbf{groupe de 2 ou 3}:
+
+    Pour une personne:
     \begin{itemize}
-        \item Créer un fichier avec Word (.doc ) dans le dépôt \textit{"blague"} précemment créé sur votre ordinateur.
+        \item Créez un fichier avec Word (.docx ) dans le dépôt \textit{"blagues"} précédemment créé sur votre ordinateur.
         \item Remplir le fichier avec des blagues.
-        \item Sauver le fichier .doc (Ne pas oublier de sauver le fichier)
+        \item Sauver le fichier .docx.
         \item Reprendre GitHub Desktop et faire le add du fichier et le commit.
-        \item Faire push sur le dépôt GitHub en ligne.
+        \item Faites un push sur le dépôt GitHub en ligne.
     \end{itemize}
 \end{frame}
 
@@ -429,8 +464,9 @@ Exercice à faire par \textbf{groupe de 2 ou 3}:
     Pour chacun:
     \begin{itemize}
     \item Faire le pull du dépôt sur votre ordinateur.
-    \item Ajouter une blague au fichier .doc.
-    \item Sauver le fichier .doc (Ne pas oublier de sauver le fichier).
+    \item Ajouter une blague au fichier .docx.
+    \item Sauver le fichier .docx
+    \item Faites un commit.
     \end{itemize}
 \end{frame}
 
@@ -438,7 +474,7 @@ Exercice à faire par \textbf{groupe de 2 ou 3}:
     \begin{itemize}
         \item Faire les étapes du deuxième slide de l'exercice deux.
         \item Enjoy :). 
-        \item N'hésitez pas a demmander pour savoir ce qu'il c'est passé. \#ViveLaTeX!
+        \item N'hésitez pas a demander pour savoir ce qu'il c'est passé. \#ViveLaTeX!
     \end{itemize}
     \begin{figure}
     \centering
@@ -519,12 +555,22 @@ Exercice à faire par \textbf{groupe de 2 ou 3}:
     \includegraphics[width=\textwidth]{img/image_exercices/conflic_resolv.png}
 \end{frame}
 
+\begin{frame}{Exercice 2: solutions}
+    Après le merge, l'historique observé dans GitHub Desktop peut ne pas être
+    le même chez les différentes personnes.
+    Cela est dû au fait que GitHub Desktop n'affiche pas l'entièreté de
+    l'historique, mais seulement les commits qu'il juge pertinents.
+
+    Pour voir tout l'historique, aller sur le site \url{github.com} ou bien
+    utiliser une autre interface de git (ex.: commande \texttt{git log}).
+\end{frame}
+
 \subsection{Solutions exercice 3}
 
 \begin{frame}{Exercice 3: solutions}
-    Cette solution est preque identique à la solution de l'exercice 1 sauf
+    Cette solution est presque identique à la solution de l'exercice 1, sauf
     qu'il est impossible de faire le merge avec GitHub Desktop. Il faut
-    utiliser une autre interface à git (voir plus loin dans les slides).
+    utiliser une autre interface de git (voir plus loin dans les slides).
 \end{frame}
 
 \section{Fonctionnalités plus avancées}
@@ -649,11 +695,7 @@ Exercice à faire par \textbf{groupe de 2 ou 3}:
 %    TODO: screenshots
 %\end{frame}
 
-\begin{frame}{Créer un dépôt local}
-    \begin{center}
-    	\includegraphics[scale=0.45]{img/new_repo.png}
-    \end{center}
-\end{frame}
+
 
 \section{Informations et ressources}
 
@@ -666,14 +708,14 @@ Exercice à faire par \textbf{groupe de 2 ou 3}:
 \end{frame}
 
 \begin{frame}{Github Student Pack}
-    Dépôts privés gratuits (tout comme sur Gitlab \& Bitbucket), et d'autres avantages pour informaticiens : \url{https://education.github.com/pack}.
+    Dépôts privés gratuits (tout comme sur Gitlab \& Bitbucket), et d'autres avantages pour les informaticiens : \url{https://education.github.com/pack}.
 
-    Nécessite d'ajouter l'addresse \texttt{...@student.uclouvain.be} au compte
+    Nécessite d'ajouter l'adresse \texttt{...@student.uclouvain.be} au compte
     GitHub.
 \end{frame}
 
 \begin{frame}{Interface en ligne de commande}
-    Utilisée par beaucoup de gens , très puissante si vous êtes à l'aise avec
+    Utilisée par beaucoup de gens, très puissante si vous êtes à l'aise avec
     un terminal.
 
     Installation:
