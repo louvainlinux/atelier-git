@@ -1,0 +1,38 @@
+Syntaxe :
+
+- un mot entre des <> doit être remplacer par un nom faisant référence à ce mot :
+
+par exemple : j'ai une branche nommée master :
+
+git checkout <branch> doit être remplacer dans le terminal par : git checkout master
+
+
+\\**************permet d'afficher les différents commits et branches différentes (en local et en ligne) de manière efficace**************// 
+
+git log --all  --oneline --decorate --graph
+
+\\**************permet d'importer une branche se trouvant sur le bitbucket en local**************//
+
+git checkout -b <branch> origin/<branch>
+
+\\**************changer de branche principale en local**************//
+
+git checkout <branch>
+
+\\**************créer une nouvelle branche à partir de la branche principale**************//
+
+git branch <branch>
+
+\\**************vérifier la liste des branches en local**************//
+
+git branch
+
+\\**************vérifier la liste des remote en ligne **************//
+
+git branch -r
+
+\\****************deleter une branche sur le remote en ligne**********************************//
+
+git push origin -d <branch>
+
+\\**************introduisez la suite ici**************//
