@@ -22,8 +22,8 @@
 % Title
 \title{Présentation Git}
 \subtitle{Un outil de collaboration puissant}
-\date{1\ier Mars 2018}
-\author{Gaëtan Cassiers \and Alexandre Fiset \and Pierre Ortegat}
+\date{10 Octobre 2019}
+\author{Théo Vanden Driessche \and Morgan Leclerc}
 \institute{KAP Louvain-li-Nux}
 \titlegraphic{\hfill\includegraphics[height=2cm]{img/logo.png}}
 
@@ -40,7 +40,7 @@
 Préparez-vous à utiliser \texttt{git} :
 vous utiliserez le logiciel GitHub Desktop durant cette présentation.
 
-Prenez un peu d'avance, installez-le:
+Prenez un peu d'avance, créez-vous un compte Github et installez Github Desktop:
 \begin{itemize}
     \item Sur les ordinateur Windows UCL: installez
             \url{https://desktop.github.com}
@@ -182,32 +182,29 @@ Aujourd'hui: aussi des interfaces graphiques, dont GitHub Desktop.
 
 \section{Utilisation: en pratique}
 
-\begin{frame}{Créer un dépot sur GitHub}
-    \includegraphics[width=.9\textwidth]{img/github_desktop/new_repo.png}
+\begin{frame}{Créer un nouveau dépot local}
+    \begin{columns}
+        \begin{column}{.5\textwidth}
+            \includegraphics[width=\textwidth]{img/add_repo.png}
+            \\
+            {\small File $\rightarrow$ Add Local repository \emph{Ctrl+O}} 
+        \end{column}
+        \begin{column}{.5\textwidth}
+            \includegraphics[width=\textwidth]{img/create_local_repo.png}
+            \\
+            $ $
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Publier un dépot sur Github}
+    \includegraphics[width=.9\textwidth]{img/publish_repo.png}
+    \\
+    {\small Pour accéder au dépot en ligne: Repository $\rightarrow$ View on Github \emph{Ctrl+Shift+G}}
 \end{frame}
 
 \begin{frame}{Ajouter un collaborateur sur GitHub}
     \includegraphics[width=\textwidth]{img/github_desktop/colaborator.png}
-\end{frame}
-
-\begin{frame}{Cloner un dépot sur son PC}
-    Deux étapes:
-    \begin{enumerate}
-        \item Prendre l'url du dépôt sur Github
-        \item Donner l'url à Github desktop
-    \end{enumerate}
-    \begin{columns}    
-        \begin{column}{0.5\textwidth}
-            \includegraphics[width=.9\textwidth]{img/github_desktop/clone_repo.png}\\ $ $\\
-        \end{column}
-        \begin{column}{0.5\textwidth}
-            \includegraphics[width=.9\textwidth]{img/github_desktop/clone_repo_desktop_2.png}\\
-            {\small Pour ouvrir cette fenêtre : \\File $\rightarrow$ Clone repository}
-        \end{column}
-    \end{columns}
-    \begin{center}
-        Ne pas effacer le \emph{".git"} !
-    \end{center}
 \end{frame}
 
 \begin{frame}{Ajouter des fichiers}
@@ -229,20 +226,14 @@ Aujourd'hui: aussi des interfaces graphiques, dont GitHub Desktop.
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Créer un dépôt local}
-    \begin{center}
-        \includegraphics[scale=0.45]{img/new_repo.png}
-    \end{center}
-\end{frame}
-
 \begin{frame}{Créer un commit}
-\begin{itemize}
-    \item Créer un \texttt{commit} sur base des fichiers ajoutés.
-    \item Message de \texttt{commit}: décrit les changements effectués.
-\end{itemize}
-\begin{center}
-    \includegraphics[width=.5\textwidth]{img/github_desktop/commit.png}
-\end{center}
+    \begin{itemize}
+        \item Créer un \texttt{commit} sur base des fichiers ajoutés.
+        \item Message de \texttt{commit}: décrit les changements effectués.
+    \end{itemize}
+    \begin{center}
+        \includegraphics[width=.5\textwidth]{img/github_desktop/commit.png}
+    \end{center}
 \end{frame}
 
 \begin{frame}{Visualiser l'historique}
@@ -319,33 +310,33 @@ Aujourd'hui: aussi des interfaces graphiques, dont GitHub Desktop.
 \end{frame}
 
 
-\section{Installation et configuration}
+% \section{Installation et configuration}
+% 
+% \begin{frame}[label = {instal}]{Installer GitHub desktop}
+% \begin{itemize}
+%     \item Sur les ordinateur Windows UCL: installez
+%             \url{https://desktop.github.com}
+%     \item Ou installez GitHub Desktop sur votre ordinateur :
+%     \begin{itemize}
+%         \item \textbf{Ubuntu} : {\footnotesize{\url{https://github.com/shiftkey/desktop/releases}}}
+%         \item \textbf{Windows ou OS X} :
+%             \url{https://desktop.github.com}
+%     \end{itemize}
+% \end{itemize}
+% \end{frame}
+% 
+% \begin{frame}{Configuration de base}
+% 
+% Git a besoin de deux informations de base sur vous pour pouvoir travailler
+% efficacement :
+% 
+% \begin{itemize}
+% \item \textbf{Nom et Prénom}
+% \item \textbf{Email}
+% \end{itemize}
 
-\begin{frame}[label = {instal}]{Installer GitHub desktop}
-\begin{itemize}
-    \item Sur les ordinateur Windows UCL: installez
-            \url{https://desktop.github.com}
-    \item Ou installez GitHub Desktop sur votre ordinateur :
-    \begin{itemize}
-        \item \textbf{Ubuntu} : {\footnotesize{\url{https://github.com/shiftkey/desktop/releases}}}
-        \item \textbf{Windows ou OS X} :
-            \url{https://desktop.github.com}
-    \end{itemize}
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Configuration de base}
-
-Git a besoin de deux informations de base sur vous pour pouvoir travailler
-efficacement :
-
-\begin{itemize}
-\item \textbf{Nom et Prénom}
-\item \textbf{Email}
-\end{itemize}
-
-%L'option \lstinline{--global} permet de configurer \texttt{git} pour tous vos autres projets sur votre PC.
-\end{frame}
+% L'option \lstinline{--global} permet de configurer \texttt{git} pour tous vos autres projets sur votre PC.
+% \end{frame}
 
 %\begin{frame}{Configuration de base -- Éditeur de textes}
 %    \textbf{Linux}
