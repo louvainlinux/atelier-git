@@ -182,6 +182,47 @@ Aujourd'hui: aussi des interfaces graphiques, dont GitHub Desktop.
 
 \section{Utilisation: en pratique}
 
+\begin{frame}{Commandes}
+    \begin{flushleft}
+    Définir son profil: \\
+    \texttt{git config --global user.name \"<nom-complet>\"} \\
+    \texttt{git config --global user.email <email>} \\
+    \texttt{git config --global user.editor <text-editor>} \\
+
+    Créer un dépot local: \\
+    \texttt{git init}
+
+    Ajouter un dépot distant: \\
+    \texttt{git remote add <remote-url>}
+
+    Voir l'état du repos et les fichiers ajoutés: \\
+    \texttt{git status}
+
+    Ajouter des fichiers: \\
+    \texttt{git add <fichiers>}
+    \end{flushleft}
+\end{frame}
+\begin{frame}{Commandes}
+    \begin{flushleft}
+        Commit les changements ajoutés: \\
+        \texttt{git commit}
+
+        Visualisez l'historique: \\
+        \texttt{git log}
+
+        Ignorer un fichier: Ajouter le path du fichier dans \texttt{.gitignore}
+
+        Récupérer des commits du repo distant: \\
+        \texttt{git pull}
+
+        Envoyer des commits au repo distant: \\
+        \texttt{git push}
+
+        Merge une branche dans la branche actuelle: \\
+        \texttt{git merge <branch>}
+    \end{flushleft}
+\end{frame}
+
 \begin{frame}{Créer un nouveau dépot local}
     \begin{columns}
         \begin{column}{.5\textwidth}
@@ -686,6 +727,18 @@ Une personne du groupe:
 %    TODO: screenshots
 %\end{frame}
 
+\begin{frame}{Commandes}
+    \begin{flushleft}
+    Déplacer la \texttt{HEAD} vers une branche ou un commit: \\
+    \texttt{git checkout <ref>}
+
+    Afficher les branches: \\
+    \texttt{git branch}
+
+    Changer l'url dun remote: \\
+    \texttt{git remote set-url <remote> <remote-url>} 
+\end{flushleft}
+\end{frame}
 
 
 \section{Informations et ressources}
