@@ -1,5 +1,5 @@
 
-##Présentation Git
+## Présentation Git
 
 Conférence `git` du [Louvain-li-Nux](http://louvainlinux.org).
 
